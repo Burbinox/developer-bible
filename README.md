@@ -9,3 +9,4 @@ _If you can't explain it simply, you don't understand it well enough._ - Albert 
 Most important information about the notes: 
 - Each note should be as easy to understand as possible even for a person who hasn't dealt with a given topic before. You should think about it as explaining things to 3 year old child. 
 - Each note should cover one topic. 
+- Each note header should also be in the table of contents in alphabetical order.
