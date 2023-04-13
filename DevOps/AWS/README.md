@@ -1,4 +1,5 @@
 # AWS
+- [EBS Volumes](#ebs_volumes)
 - [EC2 User Data](#ec2_user_data)
 - [IAM](#iam)
 - [IAM Policies](#iam_policies)
@@ -6,6 +7,8 @@
 - [Regions and Availability Zones](#regions_and_availability_zones)
 - [Security Groups](#security_groups)
 
+## EBS Volumes <a name="ebs_volumes"></a>
+Elastic Block Store (EBS) can be considered a network drive. It allows us to persist data between instances even after EC2 termination.
 ## EC2 User Data <a name="ec2_user_data"></a>
 EC2 User Data is a feature that allows you to pass scripts to an EC2 instance during its launch. When an EC2 instance is launched with user data, it is executed as soon as the instance starts up. 
 
