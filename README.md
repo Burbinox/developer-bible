@@ -1,8 +1,8 @@
 # Developer Bible
 
-The Developer Bible is a place where all modern knowledge is stored. The Bible allows knowledge to be shared and used by other users.
+The Developer Bible is a place where all IT wisdom is stored. The Bible allows knowledge to be shared and used by others.
 
-Each folder contains notes that explain the most important topics of a given technology/library/framework in an understandable way. 
+Each folder contains notes that explain the most important topics of a given technology/library/framework in an understandable way.
 
 _If you can't explain it simply, you don't understand it well enough._ - Albert Einstein
 
