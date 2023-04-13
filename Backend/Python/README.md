@@ -1,6 +1,6 @@
 # Python
 - ["*" in function defintion ](#*_in_function_definition)
-- [classmethod and staticmethod](#classmethod_and_staticmethod)
+- [@classmethod and @staticmethod](#classmethod_and_staticmethod)
 - [Context Managers](#context_managers)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Generators](#generators)
@@ -8,7 +8,7 @@
 - [Iterators](#iterators)
 - [List of comprehension](#list_of_comprehension)
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
-- [property decorator](#property_decorator) 
+- [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
 
 ## "*" in function defintion <a name="*_in_function_definition"></a>
@@ -21,7 +21,7 @@ func(1, 2)  # raises TypeError:
 func(a=1, b=2)  # this works
 ```
 
-## classmethod and staticmethod <a name="classmethod_and_staticmethod"></a>
+## `@classmethod` and `@staticmethod` <a name="classmethod_and_staticmethod"></a>
 - classmethod decorator operates and takes a class as an argument (`cls`). 
 - staticmethod don't need a `self` argument. 
 
@@ -73,7 +73,7 @@ Mutable objects are objects whose values can be changed after creation, while im
 
 So when you edit a string or number, Python underneath creates a new variable.
 
-## property decorator <a name="property_decorator"></a>
+## `@property` <a name="property"></a>
 `property` is a way to define a class attribute with custom getter, setter and deleter methods.
 ``` python
 class Circle:
