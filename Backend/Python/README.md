@@ -7,6 +7,7 @@
 - [Hashable objects](#hashable_objects)
 - ["*" in function defintion ](#*_in_function_definition)
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
+- [Protected and Private method in class](#protected_and_private_method_in_class)
 ## List of comprehension <a name="list_of_comprehension"></a>
 ``` python
 [expression for item in list]
@@ -62,4 +63,9 @@ func(a=1, b=2)  # this works
 Mutable objects are objects whose values can be changed after creation, while immutable objects are objects whose values cannot be changed after creation.
 - immutable objects: `int`, `float`, `str`, `tuple`, `frozenset`, `bytes`
 - mutable objects: `list`, `dict`, `set`, `bytearray`
+
 So when you edit a string or number, Python underneath creates a new variable.
+
+## Protected and Private method in class <a name="protected_and_private_method_in_class"></a>
+- Protected (starts with one underscore) methods should be used only within a class or its subclasses. Not by the instance of a class/subclass. But using it won't throw an error. 
+- Private (starts with two underscores) methods can be used only within a class. Trying to use it by the instance of a class or in the subclass will throw an error
