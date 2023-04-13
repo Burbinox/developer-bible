@@ -37,3 +37,22 @@ or you can use Generator Comprehension:
 ``` python 
 (i for i in range(100))
 ```
+
+## Hashable objects
+Object in Python is hashable if it has the __hash__() method. Hashable objects are "faster" which means you will find a value in a tuple faster than in a list.
+
+## "*" in function defintion
+It tells Python that any arguments that follow must be specified using keyword syntax:
+``` python
+def func(*, a, b):
+    pass
+
+func(1, 2)  # raises TypeError:
+func(a=1, b=2)  # this works
+```
+
+## Mutable and immutable objects
+Mutable objects are objects whose values can be changed after creation, while immutable objects are objects whose values cannot be changed after creation.
+- immutable objects: `int`, `float`, `str`, `tuple`, `frozenset`, `bytes`
+- mutable objects: `list`, `dict`, `set`, `bytearray`
+So when you edit a string or number, Python underneath creates a new variable.
