@@ -22,8 +22,8 @@ func(a=1, b=2)  # this works
 ```
 
 ## `@classmethod` and `@staticmethod` <a name="classmethod_and_staticmethod"></a>
-- classmethod decorator operates and takes a class as an argument (`cls`). 
-- staticmethod don't need a `self` argument. 
+- `@classmethod` decorator operates and takes a class as an argument (`cls`). 
+- `@staticmethod` don't need a `self` argument. 
 
 ## Context Managers <a name="context_managers"></a>
 Context manager is an object that defines the behavior that should be performed before and after a block of code is executed. You use the context manager with the `with` keyword. To make your own context manager you create a class in it you define the methods `__entry__` and `__exit__` these are the methods that will be executed before and after executing the code located in the `with` block.
@@ -74,7 +74,7 @@ Mutable objects are objects whose values can be changed after creation, while im
 So when you edit a string or number, Python underneath creates a new variable.
 
 ## `@property` <a name="property"></a>
-`property` is a way to define a class attribute with custom getter, setter and deleter methods.
+`@property` is a way to define a class attribute with custom getter, setter and deleter methods.
 ``` python
 class Circle:
     def __init__(self, radius):
