@@ -112,4 +112,4 @@ Due to the existence of the GIL, Threads in Python are unable to take full advan
 - I/O-bound tasks - threads or async
 
 ## Why 0.1 + 0.2 is not equal to 0.3? <a name="why_01_02_is_not_equal_to_03"></a>
-This is because how floating point numbers works in most programming languages. To prevent this, we can use the Decimal class from the decimal library and set the precision (number of significant digits after the decimal point) to a specific value for example: `getcontext().prec = 4`
+This is because how floating point numbers works in most programming languages. To prevent this, we can use the `Decimal` class from the `decimal` library and set the precision (number of significant digits after the decimal point) to a specific value: `getcontext().prec = 4`
