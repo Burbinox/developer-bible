@@ -7,9 +7,13 @@
 - [Hashable objects](#hashable_objects)
 - [Iterators](#iterators)
 - [List of comprehension](#list_of_comprehension)
+- [Multiprocessing](#multiprocessing)
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
+- [Threads](#threads)
+- [When use threads, multiprocessing and async](#when_use_threads_multiprocessing_and_async)
+- [Why 0.1 + 0.2 is not equal to 0.3?](#why-01--02-is-not-equal-to-03)
 
 ## "*" in function defintion <a name="*_in_function_definition"></a>
 It tells Python that any arguments that follow must be specified using keyword syntax:
@@ -66,6 +70,9 @@ or
 [expression for item in list if expression else expression]
 ```
 
+## Multiprocessing <a name="multiprocessing"></a>
+Multiprocessing in python can be accesible using `multiprocessing` or `concurrent.futures` libraries. Both create new processes with their own GILs, but `concurrent.futures` provides a higher-order API which means that it should be easier to use in most cases.
+
 ## Mutable and immutable objects <a name="mutable_and_immutable_objects"></a>
 Mutable objects are objects whose values can be changed after creation, while immutable objects are objects whose values cannot be changed after creation.
 - immutable objects: `int`, `float`, `str`, `tuple`, `frozenset`, `bytes`
@@ -96,3 +103,13 @@ class Circle:
 ## Protected and Private method in class <a name="protected_and_private_method_in_class"></a>
 - Protected (starts with one underscore) methods should be used only within a class or its subclasses. Not by the instance of a class/subclass. But using it won't throw an error. 
 - Private (starts with two underscores) methods can be used only within a class. Trying to use it by the instance of a class or in the subclass will throw an error
+
+## Threads <a name="threads"></a>
+Due to the existence of the GIL, Threads in Python are unable to take full advantage of multi-core processors. A bitcode can only be executed by one process that has the main thread. However, Threads are useful if we have input/output (I/O) operations, i.e. reading from files, other devices, or network sockets. For example, while waiting for a response from a request, the GIL is free to do other things.
+
+## When use threads, multiprocessing and async <a name="when_use_threads_multiprocessing_and_async"></a>
+- CPU-bound tasks - multiprocessing 
+- I/O-bound tasks - threads or async
+
+## Why 0.1 + 0.2 is not equal to 0.3? <a name="why_0.1_+_0.2_is_not_equal_to_0.3"></a>
+This is because how floating point numbers works in most programming languages. To prevent this, we can use the Decimal class from the decimal library and set the precision (number of significant digits after the decimal point) to a specific value for example: `getcontext().prec = 4`
