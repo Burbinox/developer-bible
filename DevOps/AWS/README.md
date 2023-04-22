@@ -10,6 +10,7 @@
 - [RDS](#rds)
 - [Regions and Availability Zones](#regions_and_availability_zones)
 - [Route 53](#route_53)
+- [S3 Pre-signed URL](#s3_pre_signed_url)
 - [Security Groups](#security_groups)
 
 ## Aurora <a name="aurora"></a>
@@ -42,5 +43,9 @@ Completely separate physical servers/data centers. Served to ensure the lowest p
 
 ## Route 53 <a name="route_53"></a>
 Route 53 is a service that allows you to register your domain and route traffic to resource other AWS services.
+
+## S3 Pre-signed URL <a name="s3_pre_signed_url"></a>
+Temporarily working URL to file in your private S3 bucket
+
 ## Security Groups <a name="security_groups"></a>
 They control the traffic so what is allowed to go in or out of EC2 Instances.
