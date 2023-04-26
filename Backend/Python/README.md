@@ -1,10 +1,13 @@
 # Python
-- ["*" in function defintion ](#*_in_function_definition)
+- [Asterisk in function defintion ](#asterisk_in_function_definition)
 - [@classmethod and @staticmethod](#classmethod_and_staticmethod)
 - [Context Managers](#context_managers)
 - [Dict of comprehension](#dict_of_comprehension)
+- [Exception Handling](#exception_handling)
+- [Garbage collector](#garbage_collector)
 - [Generators](#generators)
 - [Hashable objects](#hashable_objects)
+- [Inherit from base types in Python](#inherit-from-base-types-in-python)
 - [Iterators](#iterators)
 - [List of comprehension](#list_of_comprehension)
 - [Multiprocessing](#multiprocessing)
@@ -12,10 +15,11 @@
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
 - [Threads](#threads)
+- [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
 - [When use threads, multiprocessing and async](#when_use_threads_multiprocessing_and_async)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
 
-## "*" in function defintion <a name="*_in_function_definition"></a>
+## Asterisk in function defintion <a name="asterisk_in_function_definition"></a>
 It tells Python that any arguments that follow must be specified using keyword syntax:
 ``` python
 def func(*, a, b):
@@ -37,6 +41,25 @@ Context manager is an object that defines the behavior that should be performed 
 {key: value for vars in iterable} e.g. {num: num*num for num in range (1,11)}
 ```
 
+## Exception Handling <a name="exception_handling"></a>
+``` python
+try:
+    # code that may cause exception
+    x = int(input("Enter a number: "))
+except ValueError:
+    # code to run when exception occurs
+    print("Invalid input")
+else:
+    # code to run when only when `try` is sucessed 
+    print("The square of", x, "is", x ** 2)
+finally:
+    # code to run, regardless of whether an exception is raised or not
+    print("Thank you for using the program.")
+```
+
+## Garbage collector <a name="garbage_collector"></a>
+Python uses a reference counting algorithm to keep track of the number of references to an object. Every time a new reference to an object is created, the reference count for that object is incremented. Similarly, when a reference is deleted or goes out of scope, the reference count is decremented. When the reference count for an object reaches zero, it means that the object is no longer being used by the program, and it can be safely deallocated. At this point, the garbage collector is invoked to reclaim the memory used by the object.
+
 ## Generators <a name="generators"></a>
 Generator is a basicaly an Iterator but is much easier to create. 
 ``` python 
@@ -53,6 +76,11 @@ or you can use Generator Comprehension:
 
 ## Hashable objects <a name="hashable_objects"></a>
 Object in Python is hashable if it has the __hash__() method. Hashable objects are "faster" which means you will find a value in a tuple faster than in a list.
+
+## Inherit from base types in Python <a name="why_we_shouldnt_inherit_from_base_types_in_python"></a>
+Two main reasons why we shouldn't do that are:
+- Overriding some in-build methods can cause in unexpected results
+- In-build methods are usually implemented in C for performance reasons, and they have optimizations that are not available in Python code. Overriding them can casue an lost performance
 
 ## Iterators <a name="iterators"></a>
 Iterators in Python are just objects that you can iterate at. The iterator remembers its current state. To create you own Iterator you need a class with two magic methods:
@@ -106,6 +134,10 @@ class Circle:
 
 ## Threads <a name="threads"></a>
 Due to the existence of the GIL, Threads in Python are unable to take full advantage of multi-core processors. A bitcode can only be executed by one process that has the main thread. However, Threads are useful if we have input/output (I/O) operations, i.e. reading from files, other devices, or network sockets. For example, while waiting for a response from a request, the GIL is free to do other things.
+
+## What data structure is under `list` and `dict`? <a name="what_data_structure_is_udner_list_and_dict"></a>
+- list - dynamic array
+- dict - hash table
 
 ## When use threads, multiprocessing and async <a name="when_use_threads_multiprocessing_and_async"></a>
 - CPU-bound tasks - multiprocessing 
