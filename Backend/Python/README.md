@@ -18,6 +18,7 @@
 - [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
 - [When use threads, multiprocessing and async](#when_use_threads_multiprocessing_and_async)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
+- [`zip`](#zip)
 
 ## Asterisk in function defintion <a name="asterisk_in_function_definition"></a>
 It tells Python that any arguments that follow must be specified using keyword syntax:
@@ -145,3 +146,38 @@ Due to the existence of the GIL, Threads in Python are unable to take full advan
 
 ## Why 0.1 + 0.2 is not equal to 0.3? <a name="why_01_02_is_not_equal_to_03"></a>
 This is because how floating point numbers works in most programming languages. To prevent this, we can use the `Decimal` class from the `decimal` library and set the precision (number of significant digits after the decimal point) to a specific value: `getcontext().prec = 4`
+
+## zip <a name="zip"></a>
+The `zip(*iterables)` function takes iterables (can be zero or more), aggregates them in a tuple, and returns it:
+``` python
+l1 = [1, 12, 3, 55, 5]
+l2 = [6, 7, 8, 9, 10]
+l3 = [2, 3, 4, 5, 12]
+
+list(zip(l1, l2, l3)) # -> [(1, 6, 2), (12, 7, 3), (3, 8, 4), (55, 9, 5), (5, 10, 12)]
+
+for x, y, z in zip(l1, l2, l3):
+    print(x, y, z) # -> x=1, y=6, z=2 in first iteration 
+
+# can use it also with list of comprehension
+[min(x, y, z, ) for x, y, z in zip(l1, l2, l3)]
+```
+
+if one of list is shorter than rest zip will stop as soon as the shortest iterable is exhausted:
+``` python 
+l1 = [1, 12, 3]
+l2 = [6, 7, 8]
+l3 = [2, 3]
+
+list(zip(l1, l2, l3)) # -> [(1, 6, 2), (12, 7, 3)]
+```
+
+if you want to keep iterating until the longest iterable is exhausted and fill the missing values with a value (default=`None`), you can use the itertools.zip_longest():
+``` python 
+import itertools
+l1 = [1, 12, 3]
+l2 = [6, 7, 8]
+l3 = [2, 3]
+
+list(itertools.zip_longest(l1, l2, l3, fillvalue=float("inf"))) # -> [(1, 6, 2), (12, 7, 3), (3, 8, inf)]
+```
