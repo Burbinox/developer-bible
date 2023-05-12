@@ -4,6 +4,7 @@
 - [Context Managers](#context_managers)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Exception Handling](#exception_handling)
+- [Fixtures](#fixtures)
 - [Garbage collector](#garbage_collector)
 - [Generators](#generators)
 - [Hashable objects](#hashable_objects)
@@ -56,6 +57,17 @@ else:
 finally:
     # code to run, regardless of whether an exception is raised or not
     print("Thank you for using the program.")
+```
+
+## Fixtures <a name="fixtures"></a>
+Fixtures are functions, which will run before each test function to which it is applied. Fixtures are used to feed some data to the tests such as database connections, URLs to test and some sort of input data. 
+``` python
+@pytest.fixture
+def fixture_func():
+   return "fixture test"
+
+def test_fixture(fixture_func):
+    assert fixture_func == "fixture test"
 ```
 
 ## Garbage collector <a name="garbage_collector"></a>
