@@ -1,6 +1,7 @@
 # Python
 - [Asterisk in function defintion ](#asterisk_in_function_definition)
 - [@classmethod and @staticmethod](#classmethod_and_staticmethod)
+- [Code quality](#code_quality)
 - [Context Managers](#context_managers)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Exception Handling](#exception_handling)
@@ -34,6 +35,14 @@ func(a=1, b=2)  # this works
 ## `@classmethod` and `@staticmethod` <a name="classmethod_and_staticmethod"></a>
 - `@classmethod` decorator operates and takes a class as an argument (`cls`). 
 - `@staticmethod` don't need a `self` argument. 
+
+## Code quality <a name="code_quality"></a>
+Code quality tools available in Python:
+- `black` - a code formatter that enforces a specific style. 
+- `flake8` - code quality tool. Offers a broader range of checks compared to Black, covering both style and code quality concerns. 
+- `isort` - sort imports alphabetically, and automatically separated into sections and by type. (can be compatible with black)
+- `mypy` - type checker for Python
+- `pydantic` - enforces type hints at runtime, and provides user-friendly errors when data is invalid. It offers features like data validation, input sanitization, serialization, and deserialization. 
 
 ## Context Managers <a name="context_managers"></a>
 Context manager is an object that defines the behavior that should be performed before and after a block of code is executed. You use the context manager with the `with` keyword. To make your own context manager you create a class in it you define the methods `__entry__` and `__exit__` these are the methods that will be executed before and after executing the code located in the `with` block.
