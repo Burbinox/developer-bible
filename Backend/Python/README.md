@@ -16,6 +16,7 @@
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
+- [Set and dict usefull operations](#set_and_dict_usefull_operations)
 - [Threads](#threads)
 - [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
 - [When use threads, multiprocessing and async](#when_use_threads_multiprocessing_and_async)
@@ -153,6 +154,19 @@ class Circle:
 ## Protected and Private method in class <a name="protected_and_private_method_in_class"></a>
 - Protected (starts with one underscore) methods should be used only within a class or its subclasses. Not by the instance of a class/subclass. But using it won't throw an error. 
 - Private (starts with two underscores) methods can be used only within a class. Trying to use it by the instance of a class or in the subclass will throw an error
+
+## Set and dict usefull operations <a name="set_and_dict_usefull_operations"></a>
+``` python 
+a, b = {1, 2, 3}, {3, 4, 5, 6}
+a & b # return intersection -> {3}
+a | b # return union -> {1, 2, 3, 4, 5, 6}
+a - b # return difference -> {1, 2}
+a ^ b # XOR operation -> {1, 2, 4, 5, 6}
+
+c, d = {'a': 1, 'c': 2}, {'a': 3, 'b': 4}
+c | d # return union, right part is more important -> {'a': 3, 'c': 2, 'b': 4}
+```
+
 
 ## Threads <a name="threads"></a>
 Due to the existence of the GIL, Threads in Python are unable to take full advantage of multi-core processors. A bitcode can only be executed by one process that has the main thread. However, Threads are useful if we have input/output (I/O) operations, i.e. reading from files, other devices, or network sockets. For example, while waiting for a response from a request, the GIL is free to do other things.
