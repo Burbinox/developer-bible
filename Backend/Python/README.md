@@ -2,6 +2,7 @@
 - [Asterisk in function defintion ](#asterisk_in_function_definition)
 - [@classmethod and @staticmethod](#classmethod_and_staticmethod)
 - [Code quality](#code_quality)
+- [Composition vs Inheritance](#composition_vs_inheritance)
 - [Context Managers](#context_managers)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Exception Handling](#exception_handling)
@@ -44,6 +45,9 @@ Code quality tools available in Python:
 - `isort` - sort imports alphabetically, and automatically separated into sections and by type. (can be compatible with black)
 - `mypy` - type checker for Python
 - `pydantic` - enforces type hints at runtime, and provides user-friendly errors when data is invalid. It offers features like data validation, input sanitization, serialization, and deserialization. 
+
+## Composition vs Inheritance <a name="composition_vs_inheritance"></a>
+Composition is when one class __has__ another class. Composition gives more flexibility and avoids tight class coupling. Inheritance should be used when with a clear "is a" relationship.
 
 ## Context Managers <a name="context_managers"></a>
 Context manager is an object that defines the behavior that should be performed before and after a block of code is executed. You use the context manager with the `with` keyword. To make your own context manager you create a class in it you define the methods `__entry__` and `__exit__` these are the methods that will be executed before and after executing the code located in the `with` block.
@@ -98,7 +102,7 @@ or you can use Generator Comprehension:
 ```
 
 ## Hashable objects <a name="hashable_objects"></a>
-Object in Python is hashable if it has the __hash__() method. Hashable objects are "faster" which means you will find a value in a tuple faster than in a list.
+Object in Python is hashable if it has the `__hash__()` method. Hashable objects are "faster" which means you will find a value in a tuple faster than in a list.
 
 ## Inherit from base types in Python <a name="why_we_shouldnt_inherit_from_base_types_in_python"></a>
 Two main reasons why we shouldn't do that are:
