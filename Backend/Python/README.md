@@ -5,6 +5,7 @@
 - [Composition vs Inheritance](#composition_vs_inheritance)
 - [Context Managers](#context_managers)
 - [Dict of comprehension](#dict_of_comprehension)
+- [Difference between threads, async, and multiprocessing](#difference_between_threads_async_and_multiprocessing)
 - [Exception Handling](#exception_handling)
 - [Fixtures](#fixtures)
 - [Garbage collector](#garbage_collector)
@@ -20,7 +21,6 @@
 - [Set and dict usefull operations](#set_and_dict_usefull_operations)
 - [Threads](#threads)
 - [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
-- [When use threads, multiprocessing and async](#when_use_threads_multiprocessing_and_async)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
 - [`zip`](#zip)
 
@@ -56,6 +56,11 @@ Context manager is an object that defines the behavior that should be performed 
 ``` python
 {key: value for vars in iterable} e.g. {num: num*num for num in range (1,11)}
 ```
+
+## Difference between threads, async, and multiprocessing <a name="difference_between_threads_async_and_multiprocessing"></a>
+- Threads - in Python create real system threads. We can't use the full power of threads in Python because of the GIL. While the program runs, the system decides when to preempt a thread and switch to another one. Therefore, when using threads, you should be careful about race condition.
+- async/await - How it works? The tasks are added to the event loop which has three states: ready, waiting, and finished. event loop takes one task from the ready task list, runs it and when it hits "await" keyword it puts it back on the waiting list and then checks the list of the waiting tasks if they are still waiting and if not it puts it back to the ready or finished list. The "await" keyword gives the user full control over when to switch from one task to another. Unlike threads where the system decides about it. This will make "race condition" or "deadlock" errors occur much less frequently and are caused mainly by the programmer. I/O-bound tasks should use async/await or Threads.
+- Multiprocessing - creates new Python instance so it has his own GIL. That alows to take full advantage of power of the processor. CPU-bound tasks should use multiprocessing.
 
 ## Exception Handling <a name="exception_handling"></a>
 ``` python
@@ -178,10 +183,6 @@ Due to the existence of the GIL, Threads in Python are unable to take full advan
 ## What data structure is under `list` and `dict`? <a name="what_data_structure_is_udner_list_and_dict"></a>
 - list - dynamic array
 - dict - hash table
-
-## When use threads, multiprocessing and async <a name="when_use_threads_multiprocessing_and_async"></a>
-- CPU-bound tasks - multiprocessing 
-- I/O-bound tasks - threads or async
 
 ## Why 0.1 + 0.2 is not equal to 0.3? <a name="why_01_02_is_not_equal_to_03"></a>
 This is because how floating point numbers works in most programming languages. To prevent this, we can use the `Decimal` class from the `decimal` library and set the precision (number of significant digits after the decimal point) to a specific value: `getcontext().prec = 4`
