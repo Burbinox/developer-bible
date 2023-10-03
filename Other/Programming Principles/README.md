@@ -24,7 +24,7 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses objects, w
 
 ## SOLID <a name="solid"></a>
 **SOLID** is a set of five object-oriented design principles. **SOLID** is an acronym that groups five core principles that apply to object-oriented design. These principles are the following:
-- **S**ingle Responsibility Principle - A class should have only one reason to change. Example:
+- **S**ingle Responsibility Principle - A class should have only one reason to change (class should have onlue one responsibility). Example:
 ``` python
 from pathlib import Path
 from zipfile import ZipFile
