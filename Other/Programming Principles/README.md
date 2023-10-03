@@ -3,6 +3,7 @@
 - [Functional Programming](#functional_programming)
 - [KISS - Keep It Stupid, Simple](#kiss)
 - [Object-Oriented Programming](#oop)
+- [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
 
 ## DRY - Don't Repeat Yourself <a name="dry"></a>
@@ -20,6 +21,60 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses objects, w
 - Inheritance - this principle is about creating a new class that inherits the attributes and methods of an existing class, and then adding or modifying those attributes and methods as needed. 
 - Polymorphism - allows you to access objects of different types through the same interface, and to use the same method to invoke different behaviors depending on the actual type of the object.
 - Abstraction - the process of hiding complex implementation details and exposing only the necessary information to the user. It allows users to work with a simplified and easy-to-use interface, without having to know the specific implementation details.
+
+## SOLID <a name="solid"></a>
+**SOLID** is a set of five object-oriented design principles. **SOLID** is an acronym that groups five core principles that apply to object-oriented design. These principles are the following:
+- **S**ingle Responsibility Principle - A class should have only one reason to change. Example:
+``` python
+from pathlib import Path
+from zipfile import ZipFile
+
+class FileManager:
+    def __init__(self, filename):
+        self.path = Path(filename)
+
+    def read(self, encoding="utf-8"):
+        return self.path.read_text(encoding)
+
+    def write(self, data, encoding="utf-8"):
+        self.path.write_text(data, encoding)
+
+    def compress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="w") as archive:
+            archive.write(self.path)
+
+    def decompress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
+            archive.extractall()
+```
+In this example, your FileManager class has two different responsibilities. It uses the .read() and .write() methods to manage the file. It also deals with ZIP archives by providing the .compress() and .decompress() methods. Correct version should be:
+
+``` python
+from pathlib import Path
+from zipfile import ZipFile
+
+class FileManager:
+    def __init__(self, filename):
+        self.path = Path(filename)
+
+    def read(self, encoding="utf-8"):
+        return self.path.read_text(encoding)
+
+    def write(self, data, encoding="utf-8"):
+        self.path.write_text(data, encoding)
+
+class ZipFileManager:
+    def __init__(self, filename):
+        self.path = Path(filename)
+
+    def compress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="w") as archive:
+            archive.write(self.path)
+
+    def decompress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
+            archive.extractall()
+```
 
 ## YAGNI - You Ain't Gonna Need It <a name="yagni"></a>
 Developers should only implement features or functionality when it is necessary to meet the current requirements or solve a current problem.
