@@ -75,6 +75,59 @@ class ZipFileManager:
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
 ```
+- **O**pen-closed Principle - Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification. (code should be open for extension. So we should be able to extend the existing code with new functionality, but closed for modification we shouldn't need to modify the original code, in order to do that). Example:
+
+``` python
+from math import pi
+
+class Shape:
+    def __init__(self, shape_type, **kwargs):
+        self.shape_type = shape_type
+        if self.shape_type == "rectangle":
+            self.width = kwargs["width"]
+            self.height = kwargs["height"]
+        elif self.shape_type == "circle":
+            self.radius = kwargs["radius"]
+
+    def calculate_area(self):
+        if self.shape_type == "rectangle":
+            return self.width * self.height
+        elif self.shape_type == "circle":
+            return pi * self.radius**2
+```
+In this example, if you want to add a new shape you need to modify the current class. Correct version should be:
+
+``` python
+from abc import ABC, abstractmethod
+from math import pi
+
+class Shape(ABC):
+    def __init__(self, shape_type):
+        self.shape_type = shape_type
+
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__("circle")
+        self.radius = radius
+
+    def calculate_area(self):
+        return pi * self.radius**2
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        super().__init__("rectangle")
+        self.width = width
+        self.height = height
+
+    def calculate_area(self):
+        return self.width * self.height
+```
+
+- **L**iskov Substitution Principle - Subtypes must be substitutable for their base types. (objects of a child class should be able to replace objects of the base class without affecting the correctness of the program.).
 
 ## YAGNI - You Ain't Gonna Need It <a name="yagni"></a>
 Developers should only implement features or functionality when it is necessary to meet the current requirements or solve a current problem.
