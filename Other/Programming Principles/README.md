@@ -127,7 +127,12 @@ class Rectangle(Shape):
         return self.width * self.height
 ```
 
-- **L**iskov Substitution Principle - Subtypes must be substitutable for their base types. (objects of a child class should be able to replace objects of the base class without affecting the correctness of the program.).
+- **L**iskov Substitution Principle - Subtypes must be substitutable for their base types. (objects of a child class should be able to replace objects of the base class without affecting the correctness of the program).
+
+- **I**nterface Segregation Principle  - Clients should not be forced to depend upon methods that they do not use. Interfaces belong to clients, not to hierarchies. (overall it is better to have several specific interfaces instead of one general).
+
+- **D**ependency Inversion Principle  - Abstractions should not depend upon details. Details should depend upon abstractions. (The implementation should change more often than the abstraction. The abstraction should not have unnecessary details, but only provide an interface).
+
 
 ## YAGNI - You Ain't Gonna Need It <a name="yagni"></a>
 Developers should only implement features or functionality when it is necessary to meet the current requirements or solve a current problem.
