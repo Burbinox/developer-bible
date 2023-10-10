@@ -19,6 +19,7 @@
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
 - [Set and dict usefull operations](#set_and_dict_usefull_operations)
+- [Slots](#slots)
 - [Threads](#threads)
 - [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
@@ -175,6 +176,35 @@ a ^ b # XOR operation -> {1, 2, 4, 5, 6}
 c, d = {'a': 1, 'c': 2}, {'a': 3, 'b': 4}
 c | d # return union, right part is more important -> {'a': 3, 'c': 2, 'b': 4}
 ```
+
+## Slots <a name="slots"></a>
+Slots in Python is a special mechanism that is used to reduce memory of the objects and speed attribute access. This is because unlike regular classes where the attributes are based on a dictionary, attributes in the slots class have permanently allocated memory (slots class doesn't have `__dict__` and `__weakref__` methods). The downside of this solution is that we cannot dynamically add new attributes to the class.
+
+``` python
+class Person:
+    def __init__(self, name: str, address: str, email: str):
+        self.name = name
+        self.address = address
+        self.email = email
+
+
+class PersonSlots:
+    __slots__ = "name", "address", "email"
+
+    def __init__(self, name: str, address: str, email: str):
+        self.name = name
+        self.address = address
+        self.email = email
+
+person = Person()
+person.age = "23" # this will work
+
+person_slots = PersonSlots()
+person_slots.age = "23" # this will rise AttributeError 
+```
+
+
+It is also worth mentioning that dataclass has the slost attribute set to false by default.
 
 
 ## Threads <a name="threads"></a>
