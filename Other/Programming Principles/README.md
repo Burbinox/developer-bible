@@ -3,6 +3,7 @@
 - [Functional Programming](#functional_programming)
 - [KISS - Keep It Stupid, Simple](#kiss)
 - [Object-Oriented Programming](#oop)
+- [Race condition in a REST API](#race_condition_in_a_rest_api)
 - [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
 
@@ -14,6 +15,13 @@ Functional programming is based on pure functions, those that for the same input
 
 ## KISS - Keep It Stupid, Simple <a name="kiss"></a>
 Code should be kept as simple and straightforward as possible
+
+## Race condition in a REST API <a name="race_condition_in_a_rest_api"></a>
+To prevent race conditions in REST API you can do the following things:
+- Locking - ensure that only one request can access a critical section of code or a resource at a time.
+- Versioning - system where each resource has a version number, and clients must include the current version number when making updates. If the version has changed since the client read the resource, the update is rejected.
+- Transactions
+- Idempotent System - making the same request multiple times produces the same result as making it once.
 
 ## Object-Oriented Programming <a name="oop"></a>
 Object-Oriented Programming (OOP) is a programming paradigm that uses objects, which are made up of attributes (data) and methods (behaviors), to represent and manipulate data. OOP principles: 
