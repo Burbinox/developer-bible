@@ -23,3 +23,9 @@ ACID is a set of properties of database transactions:
 
 ## Index in database <a name="index_in_database"></a>
 Index in a database creates a data structure that speeds up the reading process but slows down the write/update/delete process because the index data structure needs to be updated to reflect the changes made.
+
+## SELECT DISTINCT
+return unique values from a specified column by eliminating duplicate entries in the result set.
+``` sql
+SELECT Country FROM Customers; -- Return: Germany, Poland, Poland, USA
+```
