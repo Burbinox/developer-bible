@@ -27,5 +27,9 @@ Index in a database creates a data structure that speeds up the reading process 
 ## SELECT DISTINCT
 return unique values from a specified column by eliminating duplicate entries in the result set.
 ``` sql
-SELECT Country FROM Customers; -- Return: Germany, Poland, Poland, USA
+SELECT Country FROM Customers; --> Returns: Germany, Poland, Poland, USA
+```
+
+``` sql
+SELECT DISTINCT Country FROM Customers; --> Returns: Germany, Poland, USA
 ```
