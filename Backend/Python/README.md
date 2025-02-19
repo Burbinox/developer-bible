@@ -16,6 +16,7 @@
 - [List of comprehension](#list_of_comprehension)
 - [Multiprocessing](#multiprocessing)
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
+- [MRO](#mro)
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
 - [Set and dict usefull operations](#set_and_dict_usefull_operations)
@@ -140,6 +141,28 @@ Mutable objects are objects whose values can be changed after creation, while im
 - mutable objects: `list`, `dict`, `set`, `bytearray`
 
 So when you edit a string or number, Python underneath creates a new variable.
+
+## MRO <a name="mro"></a>
+Method Resolution Order - defines the order in which classes are searched when executing a method in multiple inheritance to ensure a consistent and predictable hierarchy. (left-to-right)
+``` python
+class A:
+    @staticmethod
+    def func():
+        print("test from A")
+
+
+class B:
+    @staticmethod
+    def func():
+        print("test from A")
+
+
+class C(A, B):
+    pass
+
+
+print(C.__mro__) ## -> (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+```
 
 ## `@property` <a name="property"></a>
 `@property` is a way to define a class attribute with custom getter, setter and deleter methods.

@@ -3,6 +3,7 @@
 - [Database Scaling Methods](#database_scaling_methods)
 - [Difference between DELETE, DROP and TRUNCATE](#difference_between_delete_drop_and_truncate)
 - [Index in database](#index_in_database)
+- [SELECT DISTINCT](#select_distinct)
 
 ## ACID <a name="acid"></a>
 ACID is a set of properties of database transactions:
@@ -24,7 +25,7 @@ ACID is a set of properties of database transactions:
 ## Index in database <a name="index_in_database"></a>
 Index in a database creates a data structure that speeds up the reading process but slows down the write/update/delete process because the index data structure needs to be updated to reflect the changes made.
 
-## SELECT DISTINCT
+## SELECT DISTINCT <a name="select_distinct"></a>
 return unique values from a specified column by eliminating duplicate entries in the result set.
 ``` sql
 SELECT Country FROM Customers; --> Returns: Germany, Poland, Poland, USA
