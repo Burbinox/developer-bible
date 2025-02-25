@@ -5,6 +5,7 @@
 - [Code quality](#code_quality)
 - [Composition vs Inheritance](#composition_vs_inheritance)
 - [Context Managers](#context_managers)
+- [Decorator](#decorator)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Difference between threads, async, and multiprocessing](#difference_between_threads_async_and_multiprocessing)
 - [Exception Handling](#exception_handling)
@@ -76,6 +77,8 @@ Composition is when one class __has__ another class. Composition gives more flex
 
 ## Context Managers <a name="context_managers"></a>
 Context manager is an object that defines the behavior that should be performed before and after a block of code is executed. You use the context manager with the `with` keyword. To make your own context manager you create a class in it you define the methods `__entry__` and `__exit__` these are the methods that will be executed before and after executing the code located in the `with` block.
+
+## Decorator <a name="decorator"></a>
 
 ## Dict of comprehension <a name="dict_of_comprehension"></a>
 ``` python
