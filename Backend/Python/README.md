@@ -31,7 +31,7 @@
 ## Abstraction in Python <a name="abstraction_in_python"></a>
 Abstract classes are a blueprints for subclasses. Defining a common interface but leaving the actual implementation to the child classes.
 Abstraction is a way to hide complex implementation details and show only the necessary features of an object. We can't instantiate abstract class. This will throw an error.
-``` python
+```python
 from abc import ABC, abstractmethod
 
 class Animal(ABC):
@@ -51,7 +51,7 @@ print(dog.sound())  # Output: Woof!
 
 ## Asterisk in function defintion <a name="asterisk_in_function_definition"></a>
 It tells Python that any arguments that follow must be specified using keyword syntax:
-``` python
+```python
 def func(*, a, b):
     pass
 
@@ -79,9 +79,43 @@ Composition is when one class __has__ another class. Composition gives more flex
 Context manager is an object that defines the behavior that should be performed before and after a block of code is executed. You use the context manager with the `with` keyword. To make your own context manager you create a class in it you define the methods `__entry__` and `__exit__` these are the methods that will be executed before and after executing the code located in the `with` block.
 
 ## Decorator <a name="decorator"></a>
+A decorator is a function that wraps another function to add some functionality without modifying the original function's code.
+```python
+def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+    
+say_hello() ## say_hello = my_decorator(say_hello)
+            ## say_hello()
+```
+
+With additional parameter: 
+```python
+def repeat(n):
+    def decorator(func):
+        def wrapper():
+            for _ in range(n):
+                func()
+        return wrapper
+    return decorator
+
+@repeat(3)
+def say_hello():
+    print("Hello!")
+
+say_hello() ## say_hello = repeat(3)(say_hello)
+            ## say_hello()
+```
 
 ## Dict of comprehension <a name="dict_of_comprehension"></a>
-``` python
+```python
 {key: value for vars in iterable} e.g. {num: num*num for num in range (1,11)}
 ```
 
@@ -91,7 +125,7 @@ Context manager is an object that defines the behavior that should be performed 
 - Multiprocessing - creates new Python instance so it has his own GIL. That alows to take full advantage of power of the processor. CPU-bound tasks should use multiprocessing.
 
 ## Exception Handling <a name="exception_handling"></a>
-``` python
+```python
 try:
     # code that may cause exception
     x = int(input("Enter a number: "))
@@ -108,7 +142,7 @@ finally:
 
 ## Fixtures <a name="fixtures"></a>
 Fixtures are functions, which will run before each test function to which it is applied. Fixtures are used to feed some data to the tests such as database connections, URLs to test and some sort of input data. 
-``` python
+```python
 @pytest.fixture
 def fixture_func():
    return "fixture test"
@@ -122,7 +156,7 @@ Python uses a reference counting algorithm to keep track of the number of refere
 
 ## Generators <a name="generators"></a>
 Generator is a basicaly an Iterator but is much easier to create. 
-``` python 
+```python 
 def fibonacci(n):
     a, b = 0, 1
     for i in range(n):
@@ -130,7 +164,7 @@ def fibonacci(n):
         a, b = b, a + b
 ```
 or you can use Generator Comprehension:
-``` python 
+```python 
 (i for i in range(100))
 ```
 
@@ -150,11 +184,11 @@ Iterators in Python are just objects that you can iterate at. The iterator remem
 Iterators are used to loop through a large amount of data because they remember only teh current state and the next item so it is memory-optimized. The downside of it is that you don't have access to previous or after elements.
 
 ## List of comprehension <a name="list_of_comprehension"></a>
-``` python
+```python
 [expression for item in list]
 ```
 or
-``` python
+```python
 [expression for item in list if expression else expression]
 ```
 
@@ -170,7 +204,7 @@ So when you edit a string or number, Python underneath creates a new variable.
 
 ## MRO <a name="mro"></a>
 Method Resolution Order - defines the order in which classes are searched when executing a method in multiple inheritance to ensure a consistent and predictable hierarchy. (left-to-right)
-``` python
+```python
 class A:
     @staticmethod
     def func():
@@ -192,7 +226,7 @@ print(C.__mro__) ## -> (<class '__main__.C'>, <class '__main__.A'>, <class '__ma
 
 ## `@property` <a name="property"></a>
 `@property` is a way to define a class attribute with custom getter, setter and deleter methods.
-``` python
+```python
 class Circle:
     def __init__(self, radius):
         self._radius = radius
@@ -215,7 +249,7 @@ class Circle:
 - Private (starts with two underscores) methods can be used only within a class. Trying to use it by the instance of a class or in the subclass will throw an error
 
 ## Set and dict usefull operations <a name="set_and_dict_usefull_operations"></a>
-``` python 
+```python 
 a, b = {1, 2, 3}, {3, 4, 5, 6}
 a & b # return intersection -> {3}
 a | b # return union -> {1, 2, 3, 4, 5, 6}
@@ -229,7 +263,7 @@ c | d # return union, right part is more important -> {'a': 3, 'c': 2, 'b': 4}
 ## Slots <a name="slots"></a>
 Slots in Python is a special mechanism that is used to reduce memory of the objects and speed attribute access. This is because unlike regular classes where the attributes are based on a dictionary, attributes in the slots class have permanently allocated memory (slots class doesn't have `__dict__` and `__weakref__` methods). The downside of this solution is that we cannot dynamically add new attributes to the class.
 
-``` python
+```python
 class Person:
     def __init__(self, name: str, address: str, email: str):
         self.name = name
@@ -268,7 +302,7 @@ This is because how floating point numbers works in most programming languages. 
 
 ## zip <a name="zip"></a>
 The `zip(*iterables)` function takes iterables (can be zero or more), aggregates them in a tuple, and returns it:
-``` python
+```python
 l1 = [1, 12, 3, 55, 5]
 l2 = [6, 7, 8, 9, 10]
 l3 = [2, 3, 4, 5, 12]
@@ -283,7 +317,7 @@ for x, y, z in zip(l1, l2, l3):
 ```
 
 if one of list is shorter than rest zip will stop as soon as the shortest iterable is exhausted:
-``` python 
+```python 
 l1 = [1, 12, 3]
 l2 = [6, 7, 8]
 l3 = [2, 3]
@@ -292,7 +326,7 @@ list(zip(l1, l2, l3)) # -> [(1, 6, 2), (12, 7, 3)]
 ```
 
 if you want to keep iterating until the longest iterable is exhausted and fill the missing values with a value (default=`None`), you can use the itertools.zip_longest():
-``` python 
+```python 
 import itertools
 l1 = [1, 12, 3]
 l2 = [6, 7, 8]
