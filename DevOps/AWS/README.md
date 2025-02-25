@@ -6,6 +6,8 @@
 - [IAM](#iam)
 - [IAM Policies](#iam_policies)
 - [IAM Roles](#iam_roles)
+- [Lambda](#lambda)
+- [Lambda layers](#lambda_layers)
 - [Load balancer](#load-balancer)
 - [RDS](#rds)
 - [Regions and Availability Zones](#regions_and_availability_zones)
@@ -31,6 +33,15 @@ Real permissions in JSON format that we can grant to users or groups.
 
 ## IAM Roles <a name="iam_roles"></a>
 Permissions granted to AWS services, e.g. EC2, Lambda.
+
+## Lambda <a name="lambda"></a>
+AWS Lambda scales CPU power in proportion to the memory setting (RAM).
+
+## Lambda layers <a name="lambda_layers"></a>
+A Lambda layer is a .zip file archive that contains common code, data or libraries (numpy, pandas etc.). Reasons why you can consider using layers:
+- Reduce the size of your deployment packages.
+- Separate core function logic from dependencies.
+- Share dependencies across multiple functions.
 
 ## Load balancer <a name="load_balancer"></a>
 Its purpose is to distribute incoming network traffic across multiple targets, such as EC2 instances and containers, in order to improve the availability and scalability of your application.

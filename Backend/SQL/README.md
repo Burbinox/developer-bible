@@ -3,6 +3,7 @@
 - [Database Scaling Methods](#database_scaling_methods)
 - [Difference between DELETE, DROP and TRUNCATE](#difference_between_delete_drop_and_truncate)
 - [Index in database](#index_in_database)
+- [Normalization](#normalization)
 - [SELECT DISTINCT](#select_distinct)
 
 ## ACID <a name="acid"></a>
@@ -24,6 +25,34 @@ ACID is a set of properties of database transactions:
 
 ## Index in database <a name="index_in_database"></a>
 Index in a database creates a data structure that speeds up the reading process but slows down the write/update/delete process because the index data structure needs to be updated to reflect the changes made.
+
+## Normalization
+It is dividing large tables into smaller, related tables and defining relationships between them using foreign keys.
+Normalization reduces data redundancy, so nothing is stored twice. This makes it easier to update information and helps prevent mistakes!
+
+**Before Normalization (Single Table)**
+
+| StudentID | Name  | Course  | Professor     |
+|-----------|-------|--------|----------------|
+| 1         | Alice | Math    | Dr. Smith      |
+| 1         | Alice | Physics | Dr. Johnson    |
+| 2         | Bob   | Math    | Dr. Smith      |
+
+
+**Students Table:**  
+
+| StudentID | Name  |
+|-----------|-------|
+| 1         | Alice |
+| 2         | Bob   |
+
+**Enrollments Table:**  
+
+| EnrollmentID | StudentID | Course  | Professor     |
+|--------------|-----------|---------|----------------|
+| 1            | 1         | Math    | Dr. Smith      |
+| 2            | 1         | Physics | Dr. Johnson    |
+| 3            | 2         | Math    | Dr. Smith      |
 
 ## SELECT DISTINCT <a name="select_distinct"></a>
 return unique values from a specified column by eliminating duplicate entries in the result set.

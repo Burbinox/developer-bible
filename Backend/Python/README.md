@@ -1,4 +1,5 @@
 # Python
+- [Abstraction in Python](#abstraction_in_python)
 - [Asterisk in function defintion ](#asterisk_in_function_definition)
 - [@classmethod and @staticmethod](#classmethod_and_staticmethod)
 - [Code quality](#code_quality)
@@ -26,6 +27,27 @@
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
 - [`zip`](#zip)
 
+## Abstraction in Python <a name="abstraction_in_python"></a>
+Abstract classes are a blueprints for subclasses. Defining a common interface but leaving the actual implementation to the child classes.
+Abstraction is a way to hide complex implementation details and show only the necessary features of an object. We can't instantiate abstract class. This will throw an error.
+``` python
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        return "Woof!"
+
+animal = Animal()  # ❌ This will raise an error
+
+dog = Dog()
+print(dog.sound())  # Output: Woof!
+```
+
 ## Asterisk in function defintion <a name="asterisk_in_function_definition"></a>
 It tells Python that any arguments that follow must be specified using keyword syntax:
 ``` python
@@ -42,11 +64,12 @@ func(a=1, b=2)  # this works
 
 ## Code quality <a name="code_quality"></a>
 Code quality tools available in Python:
+- `ruff` - linter and code formatter (flake8, black and isort in one command)
 - `black` - a code formatter that enforces a specific style. 
 - `flake8` - code quality tool. Offers a broader range of checks compared to Black, covering both style and code quality concerns. 
 - `isort` - sort imports alphabetically, and automatically separated into sections and by type. (can be compatible with black)
 - `mypy` - type checker for Python
-- `pydantic` - enforces type hints at runtime, and provides user-friendly errors when data is invalid. It offers features like data validation, input sanitization, serialization, and deserialization. 
+- `pydantic` - enforces type hints at runtime, and provides user-friendly errors when data is invalid. It offers features like data validation, input sanitization, serialization, and deserialization.
 
 ## Composition vs Inheritance <a name="composition_vs_inheritance"></a>
 Composition is when one class __has__ another class. Composition gives more flexibility and avoids tight class coupling. Inheritance should be used when with a clear "is a" relationship.
