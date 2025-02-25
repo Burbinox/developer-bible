@@ -26,7 +26,7 @@ ACID is a set of properties of database transactions:
 ## Index in database <a name="index_in_database"></a>
 Index in a database creates a data structure that speeds up the reading process but slows down the write/update/delete process because the index data structure needs to be updated to reflect the changes made.
 
-## Normalization
+## Normalization <a name="normalization"></a>
 It is dividing large tables into smaller, related tables and defining relationships between them using foreign keys.
 Normalization reduces data redundancy, so nothing is stored twice. This makes it easier to update information and helps prevent mistakes!
 
