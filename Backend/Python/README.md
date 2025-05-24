@@ -1,4 +1,5 @@
 # Python
+- [.lock file](#lock_file)
 - [Abstraction in Python](#abstraction_in_python)
 - [Asterisk in function defintion ](#asterisk_in_function_definition)
 - [@classmethod and @staticmethod](#classmethod_and_staticmethod)
@@ -27,6 +28,9 @@
 - [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
 - [`zip`](#zip)
+
+## .lock file <a name="lock_file"></a>
+A .lock file has the exact versions of all dependencies to ensure consistent and repeatable package installations across environments. In contrast to `requirements.txt` or `pyproject.toml`, it also includes the exact versions of transitive dependencies.
 
 ## Abstraction in Python <a name="abstraction_in_python"></a>
 Abstract classes are a blueprints for subclasses. Defining a common interface but leaving the actual implementation to the child classes.
