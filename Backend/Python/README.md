@@ -1,13 +1,14 @@
 # Python
 - [.lock file](#lock_file)
 - [Abstraction in Python](#abstraction_in_python)
-- [Asterisk in function defintion ](#asterisk_in_function_definition)
+- [Asterisk in function definition ](#asterisk_in_function_definition)
 - [@classmethod and @staticmethod](#classmethod_and_staticmethod)
 - [Code quality](#code_quality)
 - [Composition vs Inheritance](#composition_vs_inheritance)
 - [Context Managers](#context_managers)
 - [Decorator](#decorator)
 - [Dict of comprehension](#dict_of_comprehension)
+- [Difference between pip and poetry](#difference_between_pip_and_poetry)
 - [Difference between threads, async, and multiprocessing](#difference_between_threads_async_and_multiprocessing)
 - [Exception Handling](#exception_handling)
 - [Fixtures](#fixtures)
@@ -22,10 +23,10 @@
 - [MRO](#mro)
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
-- [Set and dict usefull operations](#set_and_dict_usefull_operations)
+- [Set and dict useful operations](#set_and_dict_useful_operations)
 - [Slots](#slots)
 - [Threads](#threads)
-- [What data structure is under `list` and `dict`?](#what_data_structure_is_udner_list_and_dict)
+- [What data structure is under `list` and `dict`?](#what_data_structure_is_under_list_and_dict)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
 - [`zip`](#zip)
 
@@ -53,7 +54,7 @@ dog = Dog()
 print(dog.sound())  # Output: Woof!
 ```
 
-## Asterisk in function defintion <a name="asterisk_in_function_definition"></a>
+## Asterisk in function definition <a name="asterisk_in_function_definition"></a>
 It tells Python that any arguments that follow must be specified using keyword syntax:
 ```python
 def func(*, a, b):
@@ -122,6 +123,12 @@ say_hello() ## say_hello = repeat(3)(say_hello)
 ```python
 {key: value for vars in iterable} e.g. {num: num*num for num in range (1,11)}
 ```
+
+## Difference between pip and poetry <a name="difference_between_pip_and_poetry"></a>
+`pip` - only installs packages.
+
+`poetry` - manages all libraries by handling exact versions of packages and their dependencies, resolving dependency conflicts, and providing built-in virtual environment management.
+
 
 ## Difference between threads, async, and multiprocessing <a name="difference_between_threads_async_and_multiprocessing"></a>
 - Threads - in Python create real system threads. We can't use the full power of threads in Python because of the GIL. While the program runs, the system decides when to preempt a thread and switch to another one. Therefore, when using threads, you should be careful about race condition.
@@ -252,7 +259,7 @@ class Circle:
 - Protected (starts with one underscore) methods should be used only within a class or its subclasses. Not by the instance of a class/subclass. But using it won't throw an error. 
 - Private (starts with two underscores) methods can be used only within a class. Trying to use it by the instance of a class or in the subclass will throw an error
 
-## Set and dict usefull operations <a name="set_and_dict_usefull_operations"></a>
+## Set and dict useful operations <a name="set_and_dict_useful_operations"></a>
 ```python 
 a, b = {1, 2, 3}, {3, 4, 5, 6}
 a & b # return intersection -> {3}
@@ -297,7 +304,7 @@ It is also worth mentioning that dataclass has the slost attribute set to false 
 ## Threads <a name="threads"></a>
 Due to the existence of the GIL, Threads in Python are unable to take full advantage of multi-core processors. A bitcode can only be executed by one process that has the main thread. However, Threads are useful if we have input/output (I/O) operations, i.e. reading from files, other devices, or network sockets. For example, while waiting for a response from a request, the GIL is free to do other things.
 
-## What data structure is under `list` and `dict`? <a name="what_data_structure_is_udner_list_and_dict"></a>
+## What data structure is under `list` and `dict`? <a name="what_data_structure_is_under_list_and_dict"></a>
 - list - dynamic array
 - dict - hash table
 
