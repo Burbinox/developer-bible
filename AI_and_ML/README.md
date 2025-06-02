@@ -18,7 +18,7 @@ At the end, you average the results from these 5 tests to get the final evaluati
 
 ## K-means clustering <a name="k_means_clustering"></a>
 K-means is a popular unsupervised algorithm used for clustering data. Its goal is to partition a dataset into K clusters, where each data point is assigned to the nearest cluster centroid (center).
-![alt text](images/image.png)
+![alt text](/__images/image.png)
 
 ## Linear Regression <a name="linear_regression"></a> 
 Fits a straight line to a data set of observations, it can be used to predict new values.
