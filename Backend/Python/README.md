@@ -14,6 +14,7 @@
 - [Fixtures](#fixtures)
 - [Garbage collector](#garbage_collector)
 - [Generators](#generators)
+- [httpx](#httpx)
 - [Hashable objects](#hashable_objects)
 - [Inherit from base types in Python](#inherit-from-base-types-in-python)
 - [Iterators](#iterators)
@@ -178,6 +179,9 @@ or you can use Generator Comprehension:
 ```python 
 (i for i in range(100))
 ```
+
+## httpx <a name="httpx"></a>
+`httpx` is a modern HTTP client for Python (a successor to `requests`). It supports both synchronous and asynchronous requests, connection pooling, and HTTP/2.
 
 ## Hashable objects <a name="hashable_objects"></a>
 Object in Python is hashable if it has the `__hash__()` method. Hashable objects are "faster" which means you will find a value in a tuple faster than in a list.
