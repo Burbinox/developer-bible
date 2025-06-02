@@ -170,6 +170,22 @@ def test_fixture(fixture_func):
 ## Garbage collector <a name="garbage_collector"></a>
 Python uses a reference counting algorithm to keep track of the number of references to an object. Every time a new reference to an object is created, the reference count for that object is incremented. Similarly, when a reference is deleted or goes out of scope, the reference count is decremented. When the reference count for an object reaches zero, it means that the object is no longer being used by the program, and it can be safely deallocated. At this point, the garbage collector is invoked to reclaim the memory used by the object.
 
+Circular references is when two object are pointing to each other 
+``` python
+class Node:
+    def __init__(self):
+        self.ref = None
+
+a = Node()
+b = Node()
+a.ref = b
+b.ref = a  # creates a cycle: a points to b, b points back to a
+
+del a
+del b 
+# Even tho both objects are removed, the two Node objects still exist in memory, because of the circular reference. Python has a cycle detection mechanism that checks for unreachable cycles and removes them.
+```
+
 ## Generators <a name="generators"></a>
 Generator is a basicaly an Iterator but is much easier to create. 
 ```python 
