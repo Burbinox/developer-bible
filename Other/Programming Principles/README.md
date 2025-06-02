@@ -2,6 +2,7 @@
 - [DRY - Don't Repeat Yourself](#dry)
 - [Functional Programming](#functional_programming)
 - [KISS - Keep It Stupid, Simple](#kiss)
+- [Monolith vs microservices](#monolith_vs_microservices)
 - [Object-Oriented Programming](#oop)
 - [Race condition in a REST API](#race_condition_in_a_rest_api)
 - [SOLID](#solid)
@@ -15,6 +16,11 @@ Functional programming is based on pure functions, those that for the same input
 
 ## KISS - Keep It Stupid, Simple <a name="kiss"></a>
 Code should be kept as simple and straightforward as possible
+
+## Monolith vs microservices <a name="monolith_vs_microservices"></a>
+Use monolith when:
+- you have real-time systems where time is critical
+- you need to transfer large amounts of data within the system (to avoid the overhead of network communication)
 
 ## Race condition in a REST API <a name="race_condition_in_a_rest_api"></a>
 To prevent race conditions in REST API you can do the following things:
