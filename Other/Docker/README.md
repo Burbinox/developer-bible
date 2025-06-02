@@ -1,9 +1,10 @@
 # Docker
-- [CMD vs ENTRYPOINT](#cmd_vs_entrypoint)
+- [CMD vs ENTRYPOINT vs RUN](#cmd_vs_entrypoint)
 - [Layers](#layers)
 
 ## CMD vs ENTRYPOINT <a name="cmd_vs_entrypoint"></a>
-Both CMD and ENTRYPOINT are used to run a command at the end of running docker image. Both CMD and ENTRYPOINT are used to run a command at the end of the docker image launch. CMD parameters can be overridden, ENTRYPOINT can't and always will be run. Using both in one focker file will result in CMD being the default parameter for ENTRYPOINT. Examples:
+RUN used to execute commands during image building. 
+Both CMD and ENTRYPOINT are used to run a command at the end of the docker image launch. CMD parameters can be overridden, ENTRYPOINT can't and always will be run. Using both in one docker file will result in CMD being the default parameter for ENTRYPOINT. Examples:
 ``` dockerfile 
 FROM ubuntu
 CMD ["echo", "Hello World"]
