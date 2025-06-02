@@ -139,8 +139,79 @@ class Rectangle(Shape):
 
 - **I**nterface Segregation Principle  - Clients should not be forced to depend upon methods that they do not use. Interfaces belong to clients, not to hierarchies. (overall it is better to have several specific interfaces instead of one general).
 
+``` python 
+class WorkerInterface:
+    def work(self):
+        pass
+
+    def eat(self):
+        pass
+
+class Robot(WorkerInterface):
+    def work(self):
+        print("Robot is working")
+
+    def eat(self):
+        raise Exception("Robots don't eat")  # ❌ Violating ISP 
+```
+
+``` python 
+class Workable:
+    def work(self):
+        pass
+
+class Eatable:
+    def eat(self):
+        pass
+
+class Human(Workable, Eatable):
+    def work(self):
+        print("Human is working")
+
+    def eat(self):
+        print("Human is eating")
+
+class Robot(Workable):
+    def work(self):
+        print("Robot is working")  # ✅ Correct 
+
+```
+
 - **D**ependency Inversion Principle  - Abstractions should not depend upon details. Details should depend upon abstractions. (The implementation should change more often than the abstraction. The abstraction should not have unnecessary details, but only provide an interface).
 
+``` python
+class MySQLDatabase:
+    def connect(self):
+        print("Connecting to MySQL...")
+
+class UserService:
+    def __init__(self):
+        self.db = MySQLDatabase()  # ❌ Direct dependency -> Violating DIP
+
+    def get_user(self):
+        self.db.connect()
+        print("Getting user")
+
+```
+
+``` python
+class Database:
+    def connect(self):
+        pass
+
+class MySQLDatabase(Database):
+    def connect(self):
+        print("Connecting to MySQL...")
+
+class UserService:
+    def __init__(self, db: Database):
+        self.db = db  # ✅ Depends on abstraction 
+
+    def get_user(self):
+        self.db.connect()
+        print("Getting user")
+
+```
 
 ## YAGNI - You Ain't Gonna Need It <a name="yagni"></a>
 Developers should only implement features or functionality when it is necessary to meet the current requirements or solve a current problem.
