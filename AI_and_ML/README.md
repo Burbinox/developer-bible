@@ -1,5 +1,6 @@
 # AI/ML
 - [Cross Validation](#cross_validation)
+- [K-means clustering](#k_means_clustering)
 - [Linear Regression](#linear_regression)
 - [Moments](#moments)
 - [Percentile](#percentile)
@@ -14,6 +15,10 @@ You split the data into 5 parts of 20 samples each.
 In the first step, you train the model on 80 samples (parts 2, 3, 4, and 5) and test it on 20 samples (part 1).  
 In the second step, you train on parts 1, 3, 4, and 5, and test on part 2, and so on.  
 At the end, you average the results from these 5 tests to get the final evaluation.
+
+## K-means clustering <a name="k_means_clustering"></a>
+K-means is a popular unsupervised algorithm used for clustering data. Its goal is to partition a dataset into K clusters, where each data point is assigned to the nearest cluster centroid (center).
+![alt text](images/image.png)
 
 ## Linear Regression <a name="linear_regression"></a> 
 Fits a straight line to a data set of observations, it can be used to predict new values.
