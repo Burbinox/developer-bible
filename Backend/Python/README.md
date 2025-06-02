@@ -121,6 +121,10 @@ say_hello() ## say_hello = repeat(3)(say_hello)
 ```
 
 ## Dict of comprehension <a name="dict_of_comprehension"></a>
+Dict of comprehensions are generally faster than classic for loops because:
+- They are internally optimized in C within the Python interpreter.
+- For loops that use methods like append() or update() involve repeated function calls and introduce additional Python-level overhead, which makes them slower.
+
 ```python
 {key: value for vars in iterable} e.g. {num: num*num for num in range (1,11)}
 ```
@@ -199,6 +203,10 @@ Iterators in Python are just objects that you can iterate at. The iterator remem
 Iterators are used to loop through a large amount of data because they remember only teh current state and the next item so it is memory-optimized. The downside of it is that you don't have access to previous or after elements.
 
 ## List of comprehension <a name="list_of_comprehension"></a>
+List of comprehensions are generally faster than classic for loops because:
+- They are internally optimized in C within the Python interpreter.
+- For loops that use methods like append() or update() involve repeated function calls and introduce additional Python-level overhead, which makes them slower.
+
 ```python
 [expression for item in list]
 ```
