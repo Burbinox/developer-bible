@@ -2,6 +2,7 @@
 - [ACID](#acid)
 - [Database Scaling Methods](#database_scaling_methods)
 - [Difference between DELETE, DROP and TRUNCATE](#difference_between_delete_drop_and_truncate)
+- [Difference between WHERE and HEAVING](#difference_between_where_and_heaving)
 - [Index in database](#index_in_database)
 - [Normalization](#normalization)
 - [SELECT DISTINCT](#select_distinct)
@@ -14,7 +15,6 @@ ACID is a set of properties of database transactions:
 - Durability: This property ensures that the changes made by a committed transaction are permanent and persistent. Once a transaction is committed, its changes should be saved and remain in the database even in the event of a system failure or crash.
 
 ## Database Scaling Methods <a name="database_scaling_methods"></a>
-
 - Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency.
 - Sharding - The database is split into more databases. Every DB has some part of the data.
 
@@ -22,6 +22,24 @@ ACID is a set of properties of database transactions:
 - DELETE deletes a record from table 
 - DROP deletes whole table 
 - TRUNCATE deletes all records in table
+
+## Difference between WHERE and HEAVING <a name="difference_between_where_and_heaving"></a>
+- HAVING filters grouped and aggregated results after GROUP BY (e.g., SUM(), COUNT(), AVG())
+- WHERE filters individual rows based on conditions before grouping
+``` sql 
+-- WHERE filters rows before grouping
+SELECT Customer, SUM(Amount) AS TotalAmount
+FROM Orders
+WHERE Amount > 40
+GROUP BY Customer;
+
+-- HAVING filters groups after grouping
+SELECT Customer, SUM(Amount) AS TotalAmount
+FROM Orders
+GROUP BY Customer
+HAVING SUM(Amount) > 70;
+
+```
 
 ## Index in database <a name="index_in_database"></a>
 Index in a database creates a data structure that speeds up the reading process but slows down the write/update/delete process because the index data structure needs to be updated to reflect the changes made.
@@ -31,7 +49,6 @@ It is dividing large tables into smaller, related tables and defining relationsh
 Normalization reduces data redundancy, so nothing is stored twice. This makes it easier to update information and helps prevent mistakes!
 
 **Before Normalization (Single Table)**
-
 | StudentID | Name  | Course  | Professor     |
 |-----------|-------|--------|----------------|
 | 1         | Alice | Math    | Dr. Smith      |
@@ -40,14 +57,12 @@ Normalization reduces data redundancy, so nothing is stored twice. This makes it
 
 
 **Students Table:**  
-
 | StudentID | Name  |
 |-----------|-------|
 | 1         | Alice |
 | 2         | Bob   |
 
 **Enrollments Table:**  
-
 | EnrollmentID | StudentID | Course  | Professor     |
 |--------------|-----------|---------|----------------|
 | 1            | 1         | Math    | Dr. Smith      |
