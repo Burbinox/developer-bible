@@ -4,6 +4,7 @@
 - [Difference between DELETE, DROP and TRUNCATE](#difference_between_delete_drop_and_truncate)
 - [Difference between WHERE and HEAVING](#difference_between_where_and_heaving)
 - [Index in database](#index_in_database)
+- [JOIN and UNION](#join_and_union)
 - [Normalization](#normalization)
 - [SELECT DISTINCT](#select_distinct)
 
@@ -43,6 +44,13 @@ HAVING SUM(Amount) > 70;
 
 ## Index in database <a name="index_in_database"></a>
 Index in a database creates a data structure that speeds up the reading process but slows down the write/update/delete process because the index data structure needs to be updated to reflect the changes made.
+
+## JOIN and UNION <a name="join_and_union"></a>
+- LEFT JOIN — returns all rows from the left table plus matched rows from the right table (NULL if no match in right table)
+- RIGHT JOIN — returns all rows from the right table plus matched rows from the left table (NULL if no match in left table)
+- FULL JOIN — returns all rows from both tables, with NULLs where there’s no match on either side
+- INNER JOIN — returns only the rows that have matching values in both tables
+- UNION - combines the results of two or more SELECT queries by stacking them vertically (one after another). It removes duplicates by default (use UNION ALL to keep all duplicates). All queries involved must have the same number of columns and compatible data types in corresponding positions.
 
 ## Normalization <a name="normalization"></a>
 It is dividing large tables into smaller, related tables and defining relationships between them using foreign keys.
