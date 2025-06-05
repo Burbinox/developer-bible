@@ -25,6 +25,7 @@
 - [MRO](#mro)
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
+- [Protocol](#protocol)
 - [Set and dict useful operations](#set_and_dict_useful_operations)
 - [Slots](#slots)
 - [Threads](#threads)
@@ -294,6 +295,27 @@ class Circle:
 ## Protected and Private method in class <a name="protected_and_private_method_in_class"></a>
 - Protected (starts with one underscore) methods should be used only within a class or its subclasses. Not by the instance of a class/subclass. But using it won't throw an error. 
 - Private (starts with two underscores) methods can be used only within a class. Trying to use it by the instance of a class or in the subclass will throw an error
+
+## Protocol <a name="protocol"></a>
+`typing.Protocol` is another method of providing abstraction, but unlike abstract classes, it does not require inheritance and offers greater flexibility than the traditional approach.
+
+```python
+from typing import Protocol
+
+class SupportsClose(Protocol):
+    def close(self) -> None:
+        ...
+
+class File:
+    def close(self) -> None:
+        print("File closed")
+
+def close_resource(resource: SupportsClose) -> None:
+    resource.close()
+
+f = File()
+close_resource(f)  # Works because File has a close() method
+```
 
 ## Set and dict useful operations <a name="set_and_dict_useful_operations"></a>
 ```python 
