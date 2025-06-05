@@ -1,4 +1,5 @@
 # Programming Principles
+- [Design patterns](#design_patterns)
 - [DRY - Don't Repeat Yourself](#dry)
 - [Functional Programming](#functional_programming)
 - [KISS - Keep It Stupid, Simple](#kiss)
@@ -7,6 +8,62 @@
 - [Race condition in a REST API](#race_condition_in_a_rest_api)
 - [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
+
+## Design patterns <a name="design_patterns"></a>
+### Singletone 
+Ensures that a class has only one instance. This is useful, for example, in managing a database connection where we don't want to create multiple connections.
+
+### Decorator
+It allows you to dynamically add new functionality to objects without changing their class. Very useful for extending the behavior of objects in a flexible way.
+
+### Observer
+Defines a mechanism for notifying multiple objects (observers) about changes in the state of another object (the observed one). Similar to pub/sub system.
+
+```python
+class WeatherStation:
+    def __init__(self):
+        self._observers = []
+        self._temperature = None
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self):
+        for observer in self._observers:
+            observer.update(self._temperature)
+
+    def set_temperature(self, temperature):
+        print(f"WeatherStation: Temperatura zmieniona na {temperature}°C")
+        self._temperature = temperature
+        self.notify()
+
+
+class DisplayDevice:
+    @staticmethod
+    def update(temperature):
+        print(f"Wyświetlacz: Aktualna temperatura to {temperature}°C")
+
+
+class MobileApp:
+    @staticmethod
+    def update(temperature):
+        print(f"Aplikacja mobilna: Powiadomienie - temperatura wynosi {temperature}°C")
+
+
+weather_station = WeatherStation()
+
+display = DisplayDevice()
+app = MobileApp()
+
+weather_station.attach(display)
+weather_station.attach(app)
+
+weather_station.set_temperature(25)
+weather_station.set_temperature(30)
+```
 
 ## DRY - Don't Repeat Yourself <a name="dry"></a>
 Code should not be unnecessarily duplicated or repeated.
