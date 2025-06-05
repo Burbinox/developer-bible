@@ -7,6 +7,7 @@
 - [Composition vs Inheritance](#composition_vs_inheritance)
 - [Context Managers](#context_managers)
 - [Decorator](#decorator)
+- [ataclass](#dataclass)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Difference between pip and poetry](#difference_between_pip_and_poetry)
 - [Difference between threads, async, and multiprocessing](#difference_between_threads_async_and_multiprocessing)
@@ -122,6 +123,13 @@ def say_hello():
 say_hello() ## say_hello = repeat(3)(say_hello)
             ## say_hello()
 ```
+
+## dataclass <a name="dataclass"></a>
+A dataclass is a decorator that automatically generates typical methods for a class mainly used to store data. Thanks to dataclass, you don’t have to manually write methods like:
+- `__init__()` (constructor)
+- `__repr__()` (readable text representation)
+- `__eq__()` (object comparison)
+- `__hash__()` (to be able to be a key in dict; only if flag frozen=True)
 
 ## Dict of comprehension <a name="dict_of_comprehension"></a>
 Dict of comprehensions are generally faster than classic for loops because:
