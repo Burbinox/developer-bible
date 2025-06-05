@@ -1,6 +1,5 @@
-# Git
+# Linux
 - [Soft Link vs Hard Link](#soft_link_vs_hard_link)
-- [git stash](#git_stash)
 
 ## Soft Link vs Hard Link <a name="soft_link_vs_hard_link"></a>
 - Soft Link - Soft link, also known as a symbolic link, is a special sort of file that points at a different file. You could think of it like a Windows shortcut. Soft links can point at entire directories or link to files on remote computers.

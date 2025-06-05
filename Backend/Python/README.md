@@ -187,7 +187,10 @@ del b
 ```
 
 ## Generators <a name="generators"></a>
-Generator is a basicaly an Iterator but is much easier to create. 
+A generator is a special type of iterator in Python that allows execution to be paused and resumed using the yield keyword. It only keeps track of its current state and what comes next — not the entire history. Generators are typically used for:
+
+- Processing large amounts of data efficiently without loading everything into memory
+- Generating infinite sequences without running out of resources
 ```python 
 def fibonacci(n):
     a, b = 0, 1
