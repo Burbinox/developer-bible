@@ -29,6 +29,7 @@
 - [Threads](#threads)
 - [What data structure is under `list` and `dict`?](#what_data_structure_is_under_list_and_dict)
 - [Why 0.1 + 0.2 is not equal to 0.3?](#why_01_02_is_not_equal_to_03)
+- [@wraps](#wraps)
 - [`zip`](#zip)
 
 ## .lock file <a name="lock_file"></a>
@@ -171,7 +172,7 @@ def test_fixture(fixture_func):
 Python uses a reference counting algorithm to keep track of the number of references to an object. Every time a new reference to an object is created, the reference count for that object is incremented. Similarly, when a reference is deleted or goes out of scope, the reference count is decremented. When the reference count for an object reaches zero, it means that the object is no longer being used by the program, and it can be safely deallocated. At this point, the garbage collector is invoked to reclaim the memory used by the object.
 
 Circular references is when two object are pointing to each other 
-``` python
+```python
 class Node:
     def __init__(self):
         self.ref = None
@@ -341,6 +342,32 @@ Due to the existence of the GIL, Threads in Python are unable to take full advan
 
 ## Why 0.1 + 0.2 is not equal to 0.3? <a name="why_01_02_is_not_equal_to_03"></a>
 This is because how floating point numbers works in most programming languages. To prevent this, we can use the `Decimal` class from the `decimal` library and set the precision (number of significant digits after the decimal point) to a specific value: `getcontext().prec = 4`
+
+## @wraps <a name="wraps"></a>
+Is a decorator available in the `functools` module that is used to preserve the original function's metadata when creating your own decorators (like `__name__` or `__doc__`).
+
+```python
+from functools import wraps
+
+def decorator(fun):
+    @wraps(fun)
+    def wrapper(*args, **kwargs):
+        print("Before function execution")
+        return fun(*args, **kwargs)
+
+    return wrapper
+
+@decorator
+def hello():
+    """This functions says hello."""
+    print("Hello!")
+
+print(hello.__name__)  # outcome: Hello! 
+print(hello.__doc__)  # outcome: This functions says hello.
+# Without @wraps
+# print(przywitaj.__name__)  # outcome: wrapper
+# print(przywitaj.__doc__)   # outcome: None
+```
 
 ## zip <a name="zip"></a>
 The `zip(*iterables)` function takes iterables (can be zero or more), aggregates them in a tuple, and returns it:
