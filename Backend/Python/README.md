@@ -19,6 +19,7 @@
 - [Inherit from base types in Python](#inherit-from-base-types-in-python)
 - [Iterators](#iterators)
 - [List of comprehension](#list_of_comprehension)
+- [@lru_cache](#lru_cache)
 - [Multiprocessing](#multiprocessing)
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
 - [MRO](#mro)
@@ -234,6 +235,9 @@ or
 ```python
 [expression for item in list if expression else expression]
 ```
+
+## @lru_cache <a name="lru_cache"></a>
+Caches function results to speed up subsequent calls with the same arguments.
 
 ## Multiprocessing <a name="multiprocessing"></a>
 Multiprocessing in python can be accesible using `multiprocessing` or `concurrent.futures` libraries. Both create new processes with their own GILs, but `concurrent.futures` provides a higher-order API which means that it should be easier to use in most cases.
