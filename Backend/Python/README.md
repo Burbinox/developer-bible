@@ -24,6 +24,7 @@
 - [Multiprocessing](#multiprocessing)
 - [Mutable and immutable objects](#mutable_and_immutable_objects)
 - [MRO](#mro)
+- [Overloading](#overloding)
 - [@property](#property) 
 - [Protected and Private method in class](#protected_and_private_method_in_class)
 - [Protocol](#protocol)
@@ -278,6 +279,63 @@ class C(A, B):
 
 
 print(C.__mro__) ## -> (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+```
+
+## Overloading <a name="overloading"></a>
+Python doesn't support function overloading in the traditional sense. If multiple functions with the same name are defined, only the last one will be used.
+
+```python
+def greet():
+    print("Hello")
+
+
+def greet(name):
+    print(f"Hello, {name}")
+
+
+greet("hubert") # -> Hello hubert
+greet() # -> TypeError: greet() missing 1 required positional argument: 'name'
+```
+However, it's possible to mimic function overloading in Python using the following approaches:
+- default arguments:
+```python 
+def greet(name="world"):
+    print(f"Hello, {name}!")
+
+greet()          # Hello, world!
+greet("Alice")   # Hello, Alice!
+```
+
+- handling different argument types:
+```python 
+def add(a, b):
+    if isinstance(a, str) or isinstance(b, str):
+        return str(a) + str(b)
+    return a + b
+
+print(add(1, 2))       # 3
+print(add("a", "b"))   # ab
+```
+
+- Using `functools.singledispatch`:
+```python 
+from functools import singledispatch
+
+@singledispatch
+def process(value):
+    print("Generic case:", value)
+
+@process.register(int)
+def _(value):
+    print("It's an integer:", value)
+
+@process.register(str)
+def _(value):
+    print("It's a string:", value)
+
+process(10)      # It's an integer: 10
+process("abc")   # It's a string: abc
+process([1, 2])  # Generic case: [1, 2]
 ```
 
 ## `@property` <a name="property"></a>
