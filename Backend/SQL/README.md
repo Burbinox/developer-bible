@@ -47,10 +47,45 @@ Index in a database creates a data structure that speeds up the reading process 
 
 ## JOIN and UNION <a name="join_and_union"></a>
 - LEFT JOIN — returns all rows from the left table plus matched rows from the right table (NULL if no match in right table)
+```sql
+SELECT A.id, A.name, B.city
+FROM A
+LEFT JOIN B ON A.id = B.id;
+```
+
 - RIGHT JOIN — returns all rows from the right table plus matched rows from the left table (NULL if no match in left table)
+```sql
+SELECT A.id, A.name, B.city
+FROM A
+RIGHT JOIN B ON A.id = B.id;
+```
+
 - FULL JOIN — returns all rows from both tables, with NULLs where there’s no match on either side
+```sql
+SELECT A.id, A.name, B.city
+FROM A
+FULL JOIN B ON A.id = B.id;
+```
+
 - INNER JOIN — returns only the rows that have matching values in both tables
+```sql
+SELECT A.id, A.name, B.city
+FROM A
+INNER JOIN B ON A.id = B.id;
+```
+
 - UNION - combines the results of two or more SELECT queries by stacking them vertically (one after another). It removes duplicates by default (use UNION ALL to keep all duplicates). All queries involved must have the same number of columns and compatible data types in corresponding positions.
+```sql
+SELECT * FROM A
+UNION
+SELECT * FROM B;
+```
+
+- CROSS JOIN —  returns all possible combinations of rows from both tables. 
+```sql
+SELECT * FROM A, B;
+SELECT * FROM A CROSS JOIN B;
+```
 
 ## Normalization <a name="normalization"></a>
 It is dividing large tables into smaller, related tables and defining relationships between them using foreign keys.

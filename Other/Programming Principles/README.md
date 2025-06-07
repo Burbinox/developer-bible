@@ -10,6 +10,30 @@
 - [YAGNI - You Ain't Gonna Need It](#yagni)
 
 ## Design patterns <a name="design_patterns"></a>
+### Dependency Injection 
+Technique in which an object receives its dependencies from an external source rather than creating them itself.
+```python
+class MessageSender:
+    def send(self, message: str):
+        raise NotImplementedError
+
+class EmailSender(MessageSender):
+    def send(self, message: str):
+        print(f"Email: {message}")
+
+class NotificationService:
+    def __init__(self, sender: MessageSender):  # ← DI via constructor
+        self.sender = sender
+
+    def notify(self, message: str):
+        self.sender.send(message)
+
+email_sender = EmailSender()
+notifier = NotificationService(email_sender)  # DI
+notifier.notify("Hello!")
+
+```
+
 ### Singletone 
 Ensures that a class has only one instance. This is useful, for example, in managing a database connection where we don't want to create multiple connections.
 
