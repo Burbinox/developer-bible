@@ -1,13 +1,14 @@
 # AI/ML
 - [Cross Validation](#cross_validation)
 - [Decision Tree](#decision_tree)
-- [K-means clustering](#k_means_clustering)
+- [K-means clustering](#k-means_clustering)
 - [Linear Regression](#linear_regression)
 - [Moments](#moments)
 - [Percentile](#percentile)
 - [Polynomial Regression](#polynomial_regression)
 - [R-squared](#r-squared)
 - [Random Forest](#random_forest)
+- [XGBoost](#xgboost)
 
 ## Cross Validation <a name="cross_validation"></a>
 Cross Validation is a technique for evaluating a model’s performance by repeatedly splitting the data into training and testing sets to assess how well the model generalizes to unseen data. For exmaple (k-fold cross validation):
@@ -21,7 +22,7 @@ At the end, you average the results from these 5 tests to get the final evaluati
 ## Decision Tree <a name="decision_tree"></a>
 Supervised algorithm (data has a target value) used for classification (assigning to a group/category) or regression (predicting a numerical value). It is easy to interpret thanks to its visual tree structure but prone to overfitting.
 
-## K-means clustering <a name="k_means_clustering"></a>
+## K-means clustering <a name="k-means_clustering"></a>
 K-means is a popular unsupervised algorithm used for clustering data. Its goal is to partition a dataset into K clusters, where each data point is assigned to the nearest cluster centroid (center).
 ![alt text](/__images/image.png)
 
@@ -53,3 +54,6 @@ Is a statistical measure that indicates how well the regression line fits the da
 
 ## Random Forest <a name="random_forest"></a>
 Collection of multiple decision trees built on random subsets of the data (with replacement — some samples may appear multiple times or not at all in a given tree). Each tree works independently, and the final prediction is based on majority vote (for classification) or average (for regression). It produces more accurate and stable results than a single decision tree.
+
+## XGBoost <a name="xgboost"></a>
+XGBoost is a supervised learning algorithm mainly used for classification and regression tasks.
