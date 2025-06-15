@@ -84,7 +84,7 @@ Code quality tools available in Python:
 - `pydantic` - enforces type hints at runtime, and provides user-friendly errors when data is invalid. It offers features like data validation, input sanitization, serialization, and deserialization.
 
 ## Composition vs Inheritance <a name="composition_vs_inheritance"></a>
-Composition is when one class __has__ another class. Composition gives more flexibility and avoids tight class coupling. Inheritance should be used when with a clear "is a" relationship.
+Composition is when one class __has__ another class. Composition gives more flexibility and avoids tight class coupling. Inheritance should be used when with a clear "is a" relationship. Use inheritance when you have a tight connection between classes.
 
 ## Context Managers <a name="context_managers"></a>
 Context manager is an object that defines the behavior that should be performed before and after a block of code is executed. You use the context manager with the `with` keyword. To make your own context manager you create a class in it you define the methods `__entry__` and `__exit__` these are the methods that will be executed before and after executing the code located in the `with` block.

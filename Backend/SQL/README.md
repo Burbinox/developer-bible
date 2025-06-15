@@ -1,5 +1,6 @@
 # SQL
 - [ACID](#acid)
+- [Clustered index and non-clustered index](#clustered_index_and_non-clustered_index)
 - [Database Scaling Methods](#database_scaling_methods)
 - [Difference between DELETE, DROP and TRUNCATE](#difference_between_delete_drop_and_truncate)
 - [Difference between WHERE and HEAVING](#difference_between_where_and_heaving)
@@ -14,6 +15,23 @@ ACID is a set of properties of database transactions:
 - Consistency: This property ensures that the database remains in a consistent state before and after a transaction. In other words, a transaction should not leave the database in an inconsistent state where the data violates any constraints or rules.
 - Isolation: This property ensures that each transaction is isolated from other transactions running concurrently on the database. Each transaction must execute as if it is the only transaction running on the database, and it should not interfere with the correctness of other concurrent transactions.
 - Durability: This property ensures that the changes made by a committed transaction are permanent and persistent. Once a transaction is committed, its changes should be saved and remain in the database even in the event of a system failure or crash.
+
+## Clustered index and non-clustered index <a name="clustered_index_and_non-clustered_index"></a>
+- Clustered index - creating clustered index physically sorts and reorganizes the data on disk, usually by the primary key (PRIMARY KEY) by default. At the same time, it creates a data structure in the form of a B-Tree, which significantly speeds up reading and searching data based on that key.
+- non-clustered index - an additional index created on one or more columns that also creates a separate data structure (a B-Tree). It contains the index keys and pointers to the original data in the table, enabling fast access to records based on those columns without changing the physical order of the data.
+```sql
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    LastName VARCHAR(50),
+    Department VARCHAR(50),
+    HireDate DATE
+);
+
+CREATE NONCLUSTERED INDEX idx_LastName ON Employees(LastName);
+
+SELECT * FROM Employees WHERE EmployeeID = 123;  -- use clustered index
+SELECT * FROM Employees WHERE LastName = 'Kowalski';  -- use non-lustered index
+```
 
 ## Database Scaling Methods <a name="database_scaling_methods"></a>
 - Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency.

@@ -17,6 +17,7 @@
 
 ## Aurora <a name="aurora"></a>
 Aurora is a relational database engine that works similarly to other but has some better features, is faster than classic RDS but is it about 20% more expensive than RDS.
+
 ## Auto Scaling Group <a name="auto_scaling_group"></a>
 ASG contains a collection of EC2 instances that are automatically launched or terminated based on pre-defined scaling policies. The scaling policies determine when to increase or decrease the number of instances based on metrics such as CPU utilization, network traffic, or custom metrics.
 
