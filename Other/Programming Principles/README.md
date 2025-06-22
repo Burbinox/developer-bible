@@ -6,6 +6,7 @@
 - [Monolith vs microservices](#monolith_vs_microservices)
 - [Object-Oriented Programming](#oop)
 - [Race condition in a REST API](#race_condition_in_a_rest_api)
+- [REST](#rest)
 - [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
 
@@ -116,6 +117,9 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses objects, w
 - Inheritance - this principle is about creating a new class that inherits the attributes and methods of an existing class, and then adding or modifying those attributes and methods as needed. 
 - Polymorphism - allows you to access objects of different types through the same interface, and to use the same method to invoke different behaviors depending on the actual type of the object.
 - Abstraction - the process of hiding complex implementation details and exposing only the necessary information to the user. It allows users to work with a simplified and easy-to-use interface, without having to know the specific implementation details.
+
+## REST <a name="rest"></a>
+REST is an API design style where the client and server communicate without storing state, using the HTTP protocol and its methods (GET, POST, PUT, DELETE) to retrieve and modify resources.
 
 ## SOLID <a name="solid"></a>
 **SOLID** is a set of five object-oriented design principles. **SOLID** is an acronym that groups five core principles that apply to object-oriented design. These principles are the following:
