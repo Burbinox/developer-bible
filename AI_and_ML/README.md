@@ -8,6 +8,7 @@
 - [Polynomial Regression](#polynomial_regression)
 - [R-squared](#r-squared)
 - [Random Forest](#random_forest)
+- [SVC](#svc)
 - [XGBoost](#xgboost)
 
 ## Cross Validation <a name="cross_validation"></a>
@@ -55,5 +56,8 @@ Is a statistical measure that indicates how well the regression line fits the da
 ## Random Forest <a name="random_forest"></a>
 Collection of multiple decision trees built on random subsets of the data (with replacement — some samples may appear multiple times or not at all in a given tree). Each tree works independently, and the final prediction is based on majority vote (for classification) or average (for regression). It produces more accurate and stable results than a single decision tree.
 
+## SVC <a name="svc"></a>
+Support Vector Classifier(SVC) is a supervised machine learning algorithm. It is suitable for solving binary and multiclass classification problems, especially in complex, high-dimensional tasks.
+
 ## XGBoost <a name="xgboost"></a>
-XGBoost is a supervised learning algorithm mainly used for classification and regression tasks.
+XGBoost is a supervised learning algorithm mainly used for classification and regression tasks. It is usually well-suited for many purposes but requires hyperparameter tuning to achieve the best results.
