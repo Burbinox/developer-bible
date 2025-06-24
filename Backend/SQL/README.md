@@ -7,6 +7,7 @@
 - [Index in database](#index_in_database)
 - [JOIN and UNION](#join_and_union)
 - [Normalization](#normalization)
+- [Scaling methods](#scaling_methods)
 - [SELECT DISTINCT](#select_distinct)
 
 ## ACID <a name="acid"></a>
@@ -34,8 +35,8 @@ SELECT * FROM Employees WHERE LastName = 'Kowalski';  -- use non-lustered index
 ```
 
 ## Database Scaling Methods <a name="database_scaling_methods"></a>
-- Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency.
-- Sharding - The database is split into more databases. Every DB has some part of the data.
+- Vertical scaling (scaling up) - increasing the capacity of a single server, by adding more CPU, RAM, or bigger/faster storage 
+- Horizontal scaling (scaling out) - adding more servers/nodes to a system so that the workload is distributed across multiple machines. The following methods are commonly used: Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency. Sharding - The database is split into more databases. Every DB has some part of the data.
 
 ## Difference between DELETE, DROP and TRUNCATE <a name="difference_between_delete_drop_and_truncate"></a>
 - DELETE deletes a record from table 
