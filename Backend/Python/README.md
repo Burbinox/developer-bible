@@ -7,7 +7,7 @@
 - [Composition vs Inheritance](#composition_vs_inheritance)
 - [Context Managers](#context_managers)
 - [Decorator](#decorator)
-- [ataclass](#dataclass)
+- [dataclass](#dataclass)
 - [Dict of comprehension](#dict_of_comprehension)
 - [Difference between pip and poetry](#difference_between_pip_and_poetry)
 - [Difference between threads, async, and multiprocessing](#difference_between_threads_async_and_multiprocessing)
