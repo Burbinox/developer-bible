@@ -17,7 +17,7 @@
 - [Generators](#generators)
 - [httpx](#httpx)
 - [Hashable objects](#hashable_objects)
-- [Inherit from base types in Python](#inherit-from-base-types-in-python)
+- [Inherit from base types in Python](#inherit_from_base_types_in_python)
 - [Iterators](#iterators)
 - [List of comprehension](#list_of_comprehension)
 - [@lru_cache](#lru_cache)
@@ -221,7 +221,7 @@ or you can use Generator Comprehension:
 ## Hashable objects <a name="hashable_objects"></a>
 Object in Python is hashable if it has the `__hash__()` method. Hashable objects are "faster" which means you will find a value in a tuple faster than in a list.
 
-## Inherit from base types in Python <a name="why_we_shouldnt_inherit_from_base_types_in_python"></a>
+## Inherit from base types in Python <a name="inherit_from_base_types_in_python"></a>
 Two main reasons why we shouldn't do that are:
 - Overriding some in-build methods can cause in unexpected results
 - In-build methods are usually implemented in C for performance reasons, and they have optimizations that are not available in Python code. Overriding them can casue an lost performance
