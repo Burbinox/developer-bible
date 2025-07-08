@@ -129,6 +129,7 @@ Normalization reduces data redundancy, so nothing is stored twice. This makes it
 ## Scaling methods <a name="scaling_methods"></a>
 - Vertical scaling (scaling up) - increasing the capacity of a single server, by adding more CPU, RAM, or bigger/faster storage 
 - Horizontal scaling (scaling out) - adding more servers/nodes to a system so that the workload is distributed across multiple machines. The following methods are commonly used: Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency. Sharding - The database is split into more databases. Every DB has some part of the data.
+
 It is usually recommended to start with vertical scaling because it is cheaper and does not require changes to the architecture or the application.
 
 ## SELECT DISTINCT <a name="select_distinct"></a>
