@@ -1,7 +1,6 @@
 # SQL
 - [ACID](#acid)
 - [Clustered index and non-clustered index](#clustered_index_and_non-clustered_index)
-- [Database Scaling Methods](#database_scaling_methods)
 - [Difference between DELETE, DROP and TRUNCATE](#difference_between_delete_drop_and_truncate)
 - [Difference between WHERE and HEAVING](#difference_between_where_and_heaving)
 - [Index in database](#index_in_database)
@@ -33,10 +32,6 @@ CREATE NONCLUSTERED INDEX idx_LastName ON Employees(LastName);
 SELECT * FROM Employees WHERE EmployeeID = 123;  -- use clustered index
 SELECT * FROM Employees WHERE LastName = 'Kowalski';  -- use non-lustered index
 ```
-
-## Database Scaling Methods <a name="database_scaling_methods"></a>
-- Vertical scaling (scaling up) - increasing the capacity of a single server, by adding more CPU, RAM, or bigger/faster storage 
-- Horizontal scaling (scaling out) - adding more servers/nodes to a system so that the workload is distributed across multiple machines. The following methods are commonly used: Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency. Sharding - The database is split into more databases. Every DB has some part of the data.
 
 ## Difference between DELETE, DROP and TRUNCATE <a name="difference_between_delete_drop_and_truncate"></a>
 - DELETE deletes a record from table 
@@ -130,6 +125,11 @@ Normalization reduces data redundancy, so nothing is stored twice. This makes it
 | 1            | 1         | Math    | Dr. Smith      |
 | 2            | 1         | Physics | Dr. Johnson    |
 | 3            | 2         | Math    | Dr. Smith      |
+
+## Scaling methods <a name="scaling_methods"></a>
+- Vertical scaling (scaling up) - increasing the capacity of a single server, by adding more CPU, RAM, or bigger/faster storage 
+- Horizontal scaling (scaling out) - adding more servers/nodes to a system so that the workload is distributed across multiple machines. The following methods are commonly used: Read replicas - There is one database for writing and many for reading. It allows to speed up read process but it can cause data inconsistency. Sharding - The database is split into more databases. Every DB has some part of the data.
+It is usually recommended to start with vertical scaling because it is cheaper and does not require changes to the architecture or the application.
 
 ## SELECT DISTINCT <a name="select_distinct"></a>
 return unique values from a specified column by eliminating duplicate entries in the result set.
