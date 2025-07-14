@@ -10,6 +10,7 @@
 - [Lambda layers](#lambda_layers)
 - [Load balancer](#load-balancer)
 - [RDS](#rds)
+- [Redshift](#redshift)
 - [Regions and Availability Zones](#regions_and_availability_zones)
 - [Route 53](#route_53)
 - [S3 Pre-signed URL](#s3_pre_signed_url)
@@ -46,6 +47,9 @@ A Lambda layer is a .zip file archive that contains common code, data or librari
 
 ## Load balancer <a name="load_balancer"></a>
 Its purpose is to distribute incoming network traffic across multiple targets, such as EC2 instances and containers, in order to improve the availability and scalability of your application.
+
+## Redshift <a name="redshift"></a>
+Redshift is a data warehouse - a system designed for storing data in an organized format, mainly in the form of tables.
 
 ## RDS <a name="rds"></a>
 Relational Database Service it's a managed database service for databases that use SQL. It allows you to create databases in the cloud that are managed by AWS. RDS supports a variety of popular database engines, including Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, and Microsoft SQL Server.
