@@ -5,6 +5,7 @@
 - [K-Nearest Neighbors](#k-nearest-neighbors)
 - [Linear Regression](#linear_regression)
 - [Moments](#moments)
+- [PCA](#pca)
 - [Percentile](#percentile)
 - [Polynomial Regression](#polynomial_regression)
 - [R-squared](#r-squared)
@@ -40,6 +41,14 @@ Fits a straight line to a data set of observations, it can be used to predict ne
 - second moment - variance
 - third moment - skew -  measures the asymmetry of a probability distribution, indicating whether data tails off more to the left (negative skew) or right (positive skew)
 - fourth moment - kurtosis - how thick is the tail, and how sharp is the peak. Higher peaks have higher kurtosis
+
+## PCA <a name="PCA"></a>
+PCA (Principal Component Analysis) is a dimensionality reduction technique that aims to preserve as much variance in the data as possible. For example, in the Iris dataset, where the lengths and widths of sepals and petals are correlated, reducing four features to two dimensions still allows for a good representation of the data. PCA transforms the original features into new variables, called principal components, which are linear combinations of the original variables. These new components are ordered by decreasing variance, so the first few retain most of the information present in the data.
+The reasons why we do PCA can be the following:
+ - Speed up model training – fewer features mean fewer computations, leading to faster training and prediction.
+- Reduce the risk of overfitting – fewer features lower the chance that the model learns noise instead of true patterns.
+- Make data visualization easier – 2D or 3D data can be easily visualized on plots.
+- Reduce memory requirements – fewer features mean less space needed for data and the model.
 
 ## Percentile <a name="percentile"></a>
 Percentiles indicate how a particular value compares to the rest of a dataset by showing the percentage of values below it. For instance, being in the 75th percentile means your result is higher than 75% of all other results.
