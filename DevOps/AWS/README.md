@@ -3,6 +3,7 @@
 - [Auto Scaling Group](#auto_scaling_group)
 - [EBS Volumes](#ebs_volumes)
 - [EC2 User Data](#ec2_user_data)
+- [Glue](#glue)
 - [IAM](#iam)
 - [IAM Policies](#iam_policies)
 - [IAM Roles](#iam_roles)
@@ -24,6 +25,10 @@ ASG contains a collection of EC2 instances that are automatically launched or te
 
 ## EBS Volumes <a name="ebs_volumes"></a>
 Elastic Block Store (EBS) can be considered a network drive. It allows us to persist data between instances even after EC2 termination.
+
+## Glue <a name="glue"></a>
+Glue is ETL/ELT platform in AWS
+
 ## EC2 User Data <a name="ec2_user_data"></a>
 EC2 User Data is a feature that allows you to pass scripts to an EC2 instance during its launch. When an EC2 instance is launched with user data, it is executed as soon as the instance starts up. 
 
