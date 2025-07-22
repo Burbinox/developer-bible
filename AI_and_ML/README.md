@@ -1,6 +1,7 @@
 # AI/ML
 - [Cross Validation](#cross_validation)
 - [Decision Tree](#decision_tree)
+- [K-fold cross-validation](#k-fold_cross_validation)
 - [K-means clustering](#k-means_clustering)
 - [K-Nearest Neighbors](#k-nearest-neighbors)
 - [Linear Regression](#linear_regression)
@@ -25,6 +26,9 @@ At the end, you average the results from these 5 tests to get the final evaluati
 
 ## Decision Tree <a name="decision_tree"></a>
 Supervised algorithm (data has a target value) used for classification (assigning to a group/category) or regression (predicting a numerical value). It is easy to interpret thanks to its visual tree structure but prone to overfitting.
+
+## K-fold cross-validation <a name="k-fold_cross_validation"></a>
+This technique divides the data into K folds and, in each iteration, uses one fold as the test set and the remaining K−1 folds as the training set. This process is repeated K times, so that each fold is used as the test set exactly once. 
 
 ## K-means clustering <a name="k-means_clustering"></a>
 K-means is a popular unsupervised algorithm used for clustering data. Its goal is to partition a dataset into K clusters, where each data point is assigned to the nearest cluster centroid (center).
