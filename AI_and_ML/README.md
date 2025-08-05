@@ -46,7 +46,7 @@ Fits a straight line to a data set of observations, it can be used to predict ne
 - third moment - skew -  measures the asymmetry of a probability distribution, indicating whether data tails off more to the left (negative skew) or right (positive skew)
 - fourth moment - kurtosis - how thick is the tail, and how sharp is the peak. Higher peaks have higher kurtosis
 
-## PCA <a name="PCA"></a>
+## PCA <a name="pca"></a>
 PCA (Principal Component Analysis) is a dimensionality reduction technique that aims to preserve as much variance in the data as possible. For example, in the Iris dataset, where the lengths and widths of sepals and petals are correlated, reducing four features to two dimensions still allows for a good representation of the data. PCA transforms the original features into new variables, called principal components, which are linear combinations of the original variables. These new components are ordered by decreasing variance, so the first few retain most of the information present in the data.
 The reasons why we do PCA can be the following:
  - Speed up model training – fewer features mean fewer computations, leading to faster training and prediction.
