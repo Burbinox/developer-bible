@@ -1,6 +1,7 @@
 # Programming Principles
 - [Design patterns](#design_patterns)
 - [DRY - Don't Repeat Yourself](#dry)
+- [Dead Letter Queue](#dead_letter_queue)
 - [Functional Programming](#functional_programming)
 - [KISS - Keep It Stupid, Simple](#kiss)
 - [Monolith vs microservices](#monolith_vs_microservices)
@@ -92,6 +93,9 @@ weather_station.set_temperature(30)
 
 ## DRY - Don't Repeat Yourself <a name="dry"></a>
 Code should not be unnecessarily duplicated or repeated.
+
+## Dead Letter Queue<a name="dead_letter_queue"></a>
+is a secondary queue that stores messages that cannot be processed successfully, allowing them to be analyzed, fixed, or retried without blocking the main queue.
 
 ## Functional Programming <a name="functional_programming"></a>
 Functional programming is based on pure functions, those that for the same input data will always give the same output data. It has no side effects which means it doesn't change the global variables. It also bases on the immutability of variables. Instead, new values are created as needed. This all together leads to code that is easier to understand, test, and debug.
