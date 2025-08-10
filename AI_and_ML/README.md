@@ -35,7 +35,7 @@ K-means is a popular unsupervised algorithm used for clustering data. Its goal i
 ![alt text](/__images/image.png)
 
 ## K-Nearest Neighbors <a name="k-nearest-neighbors"></a> 
-KNN (K-Nearest Neighbors) is a supervised learning algorithm used for classification (spam detection), regression (predicting house prices), anomaly detection (identifying outliers), and recommendation systems (suggesting similar movies or games). For each new point, it calculates the distance between that point and all stored training points, selects the K nearest neighbors, and then makes a decision: in classification, it chooses the most common class among the neighbors, and in regression, it computes the average value.
+KNN (K-Nearest Neighbors) is a supervised learning algorithm used for classification (spam detection), regression (predicting house prices), anomaly detection (identifying outliers), and recommendation systems (suggesting similar movies or games). For each new point, it calculates the distance between that point and all stored training points, selects the K nearest neighbors, and then makes a decision: in classification, it chooses the most common class among the neighbors, and in regression, it computes the average value. It may be also used for imputation technique on missing data.
 
 ## Linear Regression <a name="linear_regression"></a> 
 Fits a straight line to a data set of observations, it can be used to predict new values.
