@@ -1,8 +1,9 @@
 # Programming Principles
 - [Design patterns](#design_patterns)
-- [DRY - Don't Repeat Yourself](#dry)
 - [Dead Letter Queue](#dead_letter_queue)
+- [DRY - Don't Repeat Yourself](#dry)
 - [Functional Programming](#functional_programming)
+- [Idempotent API systems](#idempotent_api_systems)
 - [KISS - Keep It Stupid, Simple](#kiss)
 - [Monolith vs microservices](#monolith_vs_microservices)
 - [Object-Oriented Programming](#oop)
@@ -91,14 +92,21 @@ weather_station.set_temperature(25)
 weather_station.set_temperature(30)
 ```
 
+## Dead Letter Queue<a name="dead_letter_queue"></a>
+Is a secondary queue that stores messages that cannot be processed successfully, allowing them to be analyzed, fixed, or retried without blocking the main queue.
+
 ## DRY - Don't Repeat Yourself <a name="dry"></a>
 Code should not be unnecessarily duplicated or repeated.
 
-## Dead Letter Queue<a name="dead_letter_queue"></a>
-is a secondary queue that stores messages that cannot be processed successfully, allowing them to be analyzed, fixed, or retried without blocking the main queue.
-
 ## Functional Programming <a name="functional_programming"></a>
 Functional programming is based on pure functions, those that for the same input data will always give the same output data. It has no side effects which means it doesn't change the global variables. It also bases on the immutability of variables. Instead, new values are created as needed. This all together leads to code that is easier to understand, test, and debug.
+
+## Idempotent API systems<a name="idempotent_api_systems"></a>
+Means that making the same request multiple times has the same final effect as making it once. Some methods are idempotent by default like: GET, PUT, DELETE (if implemented right). To make sure your POST request is idempotent you can add Idempotency-Key:
+```
+POST /create-article
+Idempotency-Key: user-X-create-article-Y
+```
 
 ## KISS - Keep It Stupid, Simple <a name="kiss"></a>
 Code should be kept as simple and straightforward as possible
