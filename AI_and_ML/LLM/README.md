@@ -1,7 +1,11 @@
 # LLM
 - [Advanced Prompting Techniques](#advanced_prompting_techniques)
 - [Agent system testing](#agent_system_testing)
+- [Hybrid search](#hybrid_search)
 - [LangGraph](#langgraph)
+- [MMR](#mmr)
+- [Reranking](#reranking)
+- [Scoring](#scoring)
 
 ## Advanced Prompting Techniques <a name="advanced_prompting_techniques"></a>
 - Few-Shot Learning - you give model a few examples
@@ -14,7 +18,10 @@
 - Tool-use validation - Check whether the agent correctly selects and calls tools (APIs, functions, databases), including correct arguments and execution order.
 - Adversarial testing - Test robustness of agents against malicious, ambiguous, or edge-case inputs (e.g., prompt injection, misleading instructions).
 
- ## LangGraph <a name="langgraph"></a>
+## Hybrid search <a name="hybrid_search"></a>
+Retrieval method that combines results from full-text search (usually BM25), and vector search. It captures both exact keyword matches and semantic similarity.
+
+## LangGraph <a name="langgraph"></a>
 LangGraph is a tool for building AI applications as a structured workflow, where each step performs a specific task (node), the application data is stored in a shared memory-like object (state), the transitions between steps define what happens next (edges), and saved progress makes it possible to return to an earlier moment or continue the process later (checkpoint). Key topics:
 - state - a shared data object passed between steps in LangGraph:
 ``` python
@@ -69,3 +76,12 @@ checkpointer = InMemorySaver()
 graph = builder.compile(checkpointer=checkpointer)
 # enables checkpointing
 ```
+
+## MMR <a name="mmr"></a>
+Maximal Marginal Relevance - a post-retrieval selection mechanism that reduces repetitive or highly similar chunks. It selects results that are both relevant to the query and diverse from each other.
+
+## Reranking <a name="reranking"></a>
+Reranking is a post-retrieval step in a RAG pipeline. Its purpose is to reorder the candidate documents or chunks returned by the retriever (top-k), from the most to the least relevant to the user’s query. Each user query + document/chunk pair is passed to a reranker, which assigns a relevance score to every pair. Based on these scores, the candidates are sorted again, and only the best-ranked chunks, called top-n results, are selected as context for the LLM. Reranking improves the quality of the final answer because retrieval is usually fast and approximate, while the reranker evaluates more precisely which chunks actually answer the user’s question.
+
+## Scoring <a name="scoring"></a>
+Mechanism for combining hybrid search results into one final ranking. An example is RRF (Reciprocal Rank Fusion), which uses document positions in the BM25 and vector search rankings to create a single final ranking.
