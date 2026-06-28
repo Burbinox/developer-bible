@@ -9,6 +9,7 @@
 - [MMR](#mmr)
 - [Reranking](#reranking)
 - [Scoring](#scoring)
+- [top-k, top-p](#top_k_top_p)
 
 ## Advanced Prompting Techniques <a name="advanced_prompting_techniques"></a>
 - Few-Shot Learning - you give model a few examples
@@ -112,3 +113,7 @@ Reranking is a post-retrieval step in a RAG pipeline. Its purpose is to reorder 
 
 ## Scoring <a name="scoring"></a>
 Mechanism for combining hybrid search results into one final ranking. An example is RRF (Reciprocal Rank Fusion), which uses document positions in the BM25 and vector search rankings to create a single final ranking.
+
+## top-k, top-p <a name="top_k_top_p"></a>
+- Top-k sampling selects a fixed number of the most probable tokens, regardless of how probability mass is distributed (e.g., always the top 10 candidates). 
+- Top-p (nucleus sampling) dynamically selects the smallest set of top tokens whose cumulative probability exceeds a threshold p (e.g., with p = 0.8 it might include 3 tokens in a confident distribution or 30 tokens in an uncertain one).
