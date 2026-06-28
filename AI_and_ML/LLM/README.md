@@ -1,8 +1,11 @@
 # LLM
 - [Advanced Prompting Techniques](#advanced_prompting_techniques)
+- [Agent safety](#agent_safety)
 - [Agent system testing](#agent_system_testing)
+- [Chunking methods](#chunking_methods)
 - [Hybrid search](#hybrid_search)
 - [LangGraph](#langgraph)
+- [Memory type](#memory_type)
 - [MMR](#mmr)
 - [Reranking](#reranking)
 - [Scoring](#scoring)
@@ -13,10 +16,29 @@
 - Role-playing - assigning a specific role to the model and/or defining the user’s role or target audience.
 - Temperature, Top-p - Temperature controls how boldly the model chooses between possible outputs (higher = more creative), while top-p controls how many possible outputs are considered in the first place.
 
+## Agent safety <a name="agent_safety"></a>
+- Restrict tool permissions
+- Validate actions before execution
+- HITL (Human-in-the-Loop)
+- Add limits for requests, costs, API calls, etc.
+- Logging and observability
+
 ## Agent system testing <a name="agent_system_testing"></a>
 - Task-based evaluation - Evaluate whether an agent correctly completes predefined tasks from input to final output, usually using a golden dataset.
 - Tool-use validation - Check whether the agent correctly selects and calls tools (APIs, functions, databases), including correct arguments and execution order.
 - Adversarial testing - Test robustness of agents against malicious, ambiguous, or edge-case inputs (e.g., prompt injection, misleading instructions).
+
+## Chunking methods <a name="chunking_methods"></a>
+- Fixed-size chunking - splitting text into chunks of a fixed number of characters
+- Chunking with overlap - consecutive chunks partially overlap to preserve context
+- Sentence-based chunking - splitting text by sentences
+- Paragraph-based chunking - splitting text by paragraphs
+- Semantic chunking - splitting text based on meaning, for example when the topic changes
+- Recursive chunking - First, it tries to split by larger structures, then by smaller ones if the chunk is too long. Example: first by paragraphs, then by sentences
+- Structure-aware chunking - Splitting text using the document structure, such as headings, sections, lists, tables, or code.
+- Token-based chunking - Splitting text based on the number of tokens
+- Sliding window chunking - Splitting text using a sliding window, often with overlap
+- LLM-based chunking - The model decides where it is best to split the text
 
 ## Hybrid search <a name="hybrid_search"></a>
 Retrieval method that combines results from full-text search (usually BM25), and vector search. It captures both exact keyword matches and semantic similarity.
@@ -76,6 +98,11 @@ checkpointer = InMemorySaver()
 graph = builder.compile(checkpointer=checkpointer)
 # enables checkpointing
 ```
+
+## Memory type <a name="memory_type"></a>
+- Short-term - current context of the conversation/task
+- Long-term - persistent information about the project, user preferences, previous decisions, etc. It is added to the context only when needed. It can be retrieved automatically or via a tool that checks whether some information from long-term memory should be added to the context.
+
 
 ## MMR <a name="mmr"></a>
 Maximal Marginal Relevance - a post-retrieval selection mechanism that reduces repetitive or highly similar chunks. It selects results that are both relevant to the query and diverse from each other.
