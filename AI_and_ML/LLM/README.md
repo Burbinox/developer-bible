@@ -1,5 +1,6 @@
 # LLM
 - [Advanced Prompting Techniques](#advanced_prompting_techniques)
+- [Architecture patterns](#architecture_patterns)
 - [Agent safety](#agent_safety)
 - [Agent system testing](#agent_system_testing)
 - [Chunking methods](#chunking_methods)
@@ -16,6 +17,13 @@
 - Chain-of-Thought - the method involves guiding the model through step-by-step reasoning to help it solve complex tasks more effectively
 - Role-playing - assigning a specific role to the model and/or defining the user’s role or target audience.
 - Temperature, Top-p - Temperature controls how boldly the model chooses between possible outputs (higher = more creative), while top-p controls how many possible outputs are considered in the first place.
+
+## Architecture patterns <a name="architecture_patterns"></a>
+- Domain-Driven Design - DDD is a way of creating software where we first try to understand how a given domain or problem works, and only then organize the code according to its concepts, rules, and processes. As a result, the code is more similar to the real-world problem that the program is meant to solve.
+- Clean Architecture - means that the main business logic stays independent, and all contact with the outside world, such as databases, APIs, or user interfaces, is handled by separate parts of the application.
+- Hexagonal Architecture - keeps the main application logic independent from external technologies. Databases, APIs, and user interfaces communicate with the application through ports and adapters, which work like replaceable plugs.
+- Pipe and Filter Architecture - a pipeline where data passes through a sequence of independent processing steps.
+- Three-Tier Architecture — an architecture that divides an application into three main parts: presentation layer, business logic layer, and data layer.
 
 ## Agent safety <a name="agent_safety"></a>
 - Restrict tool permissions
