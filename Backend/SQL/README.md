@@ -5,9 +5,11 @@
 - [Difference between WHERE and HEAVING](#difference_between_where_and_heaving)
 - [Index in database](#index_in_database)
 - [JOIN and UNION](#join_and_union)
+- [Materialized view](#materialized_view)
 - [Normalization](#normalization)
 - [Scaling methods](#scaling_methods)
 - [SELECT DISTINCT](#select_distinct)
+- [View](#view)
 
 ## ACID <a name="acid"></a>
 ACID is a set of properties of database transactions:
@@ -101,6 +103,9 @@ SELECT * FROM A, B;
 SELECT * FROM A CROSS JOIN B;
 ```
 
+## Materialized view <a name="materialized_view"></a>
+A materialized view is a stored result of a SQL query. It can speed up reads by avoiding repeated recalculation, but it must be refreshed to reflect the latest data.
+
 ## Normalization <a name="normalization"></a>
 It is dividing large tables into smaller, related tables and defining relationships between them using foreign keys.
 Normalization reduces data redundancy, so nothing is stored twice. This makes it easier to update information and helps prevent mistakes!
@@ -141,3 +146,6 @@ SELECT Country FROM Customers; --> Returns: Germany, Poland, Poland, USA
 ``` sql
 SELECT DISTINCT Country FROM Customers; --> Returns: Germany, Poland, USA
 ```
+
+## View <a name="view"></a>
+A view is a saved SQL query that works like a virtual table, so it can be queried like a regular table. A regular view does not store query results itself. When it is queried, the database executes the underlying SQL and returns current data from the source tables. Views are used to hide complex queries behind a simpler interface, making data easier to read, reuse, and work with.
