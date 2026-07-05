@@ -11,6 +11,7 @@
 - [Dict of comprehension](#dict_of_comprehension)
 - [Difference between pip and poetry](#difference_between_pip_and_poetry)
 - [Difference between threads, async, and multiprocessing](#difference_between_threads_async_and_multiprocessing)
+- [Dynamic typing](#dynamic_typing)
 - [Exception Handling](#exception_handling)
 - [Fixtures](#fixtures)
 - [Garbage collector](#garbage_collector)
@@ -151,6 +152,16 @@ Dict of comprehensions are generally faster than classic for loops because:
 - Threads - in Python create real system threads. We can't use the full power of threads in Python because of the GIL. While the program runs, the system decides when to preempt a thread and switch to another one. Therefore, when using threads, you should be careful about race condition.
 - async/await - How it works? The tasks are added to the event loop which has three states: ready, waiting, and finished. event loop takes one task from the ready task list, runs it and when it hits "await" keyword it puts it back on the waiting list and then checks the list of the waiting tasks if they are still waiting and if not it puts it back to the ready or finished list. The "await" keyword gives the user full control over when to switch from one task to another. Unlike threads where the system decides about it. This will make "race condition" or "deadlock" errors occur much less frequently and are caused mainly by the programmer. I/O-bound tasks should use async/await or Threads.
 - Multiprocessing - creates new Python instance so it has his own GIL. That alows to take full advantage of power of the processor. CPU-bound tasks should use multiprocessing.
+
+## Dynamic typing <a name="dynamic_typing"></a>
+Python is a dynamically typed language, which means that type of a variable is determined at runtime, rather than at compile time or at the time of declaration.
+<br>Pros:
+- faster and simpler code development
+- more flexibility - one variable can store different data types during program execution
+
+Cons:
+- type-related errors are detected only at runtime
+- dynamic type checking at runtime can introduce overhead compared to statically typed languages
 
 ## Exception Handling <a name="exception_handling"></a>
 ```python

@@ -1,4 +1,6 @@
 # Programming Principles
+- [At-least-once delivery, Inbox and Outbox patterns](#at_least_once_delivery)
+- [Authorization vs Authentication](#authorization_vs_authentication)
 - [Design patterns](#design_patterns)
 - [Dead Letter Queue](#dead_letter_queue)
 - [DRY - Don't Repeat Yourself](#dry)
@@ -11,6 +13,15 @@
 - [REST](#rest)
 - [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
+
+## At-least-once delivery, Inbox and Outbox patterns <a name="at_least_once_delivery"></a>
+- At-least-once delivery means that a message will be delivered at least once, but it may be delivered multiple times. Therefore, consumers must be idempotent, meaning they must be able to handle the same message being processed more than once.
+- Outbox Pattern means that a producer performs a business change and stores an event in an outbox table in its own database within a single transaction. Then, a separate process reads unsent events from the outbox and publishes them to the queue.
+- Inbox Pattern means that a consumer performs the business logic and stores the identifier of the received event within a single transaction in order to detect duplicates. If processing or writing to the database fails, the message is not acknowledged and returns to the queue.
+
+## Authorization vs Authentication <a name="authorization_vs_authentication"></a>
+- Authentication is the process of verifying and confirming who a user is. Authentication can be performed using, for example, a username and password, SSO, or MFA (Multi-Factor Authentication).
+- Authorization is the process of determining what an authenticated user is allowed to access or perform.
 
 ## Design patterns <a name="design_patterns"></a>
 ### Dependency Injection 
