@@ -7,6 +7,7 @@
 - [Hybrid search](#hybrid_search)
 - [LangGraph](#langgraph)
 - [Memory type](#memory_type)
+- [Metrics](#metrics)
 - [MMR](#mmr)
 - [Reranking](#reranking)
 - [Scoring](#scoring)
@@ -112,6 +113,9 @@ graph = builder.compile(checkpointer=checkpointer)
 - Short-term - current context of the conversation/task
 - Long-term - persistent information about the project, user preferences, previous decisions, etc. It is added to the context only when needed. It can be retrieved automatically or via a tool that checks whether some information from long-term memory should be added to the context.
 
+## Metrics <a name="metrics"></a>
+recall - The percentage of all relevant items that the model successfully finds. It answers: “Out of everything that should be found, how much did the model find?”
+precision - The percentage of found results that are actually correct. It answers: “When the model finds something, how often is it right?”
 
 ## MMR <a name="mmr"></a>
 Maximal Marginal Relevance - a post-retrieval selection mechanism that reduces repetitive or highly similar chunks. It selects results that are both relevant to the query and diverse from each other.

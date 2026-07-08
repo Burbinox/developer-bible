@@ -1,6 +1,7 @@
 # Programming Principles
 - [At-least-once delivery, Inbox and Outbox patterns](#at_least_once_delivery)
 - [Authorization vs Authentication](#authorization_vs_authentication)
+- [Concurrent Data Access Problems](#concurrent_data_access_problems)
 - [Design patterns](#design_patterns)
 - [Dead Letter Queue](#dead_letter_queue)
 - [DRY - Don't Repeat Yourself](#dry)
@@ -22,6 +23,13 @@
 ## Authorization vs Authentication <a name="authorization_vs_authentication"></a>
 - Authentication is the process of verifying and confirming who a user is. Authentication can be performed using, for example, a username and password, SSO, or MFA (Multi-Factor Authentication).
 - Authorization is the process of determining what an authenticated user is allowed to access or perform.
+
+## Concurrent Data Access Problems <a name="concurrent_data_access_problems"></a>
+Race condition - a situation where the result of a program depends on the order in which concurrent operations are executed. It can lead to incorrect or unpredictable data.
+Lost update - a problem where one operation overwrites the result of another operation, causing the earlier change to be lost.
+Dirty read - a situation where a transaction reads data changed by another transaction before that change has been committed. If the change is rolled back, the data that was read was incorrect.
+Deadlock - a situation where two or more processes wait for resources held by each other, so none of them can continue.
+Starvation - a situation where a process or thread waits for a long time to access a resource because other processes keep getting priority.
 
 ## Design patterns <a name="design_patterns"></a>
 ### Dependency Injection 
