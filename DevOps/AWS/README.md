@@ -42,7 +42,7 @@ Real permissions in JSON format that we can grant to users or groups.
 Permissions granted to AWS services, e.g. EC2, Lambda.
 
 ## Lambda <a name="lambda"></a>
-AWS Lambda scales CPU power in proportion to the memory setting (RAM).
+AWS Lambda scales CPU power in proportion to the memory setting (RAM). Cache can be done in lambda using global variable or external Redis db. 
 
 ## Lambda layers <a name="lambda_layers"></a>
 A Lambda layer is a .zip file archive that contains common code, data or libraries (numpy, pandas etc.). Reasons why you can consider using layers:
