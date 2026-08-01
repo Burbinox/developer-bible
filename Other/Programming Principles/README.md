@@ -150,7 +150,9 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses objects, w
 - Abstraction - the process of hiding complex implementation details and exposing only the necessary information to the user. It allows users to work with a simplified and easy-to-use interface, without having to know the specific implementation details.
 
 ## REST <a name="rest"></a>
-REST is an API design style where the client and server communicate without storing state, using the HTTP protocol and its methods (GET, POST, PUT, DELETE) to retrieve and modify resources.
+REST is an API design style where the client and server communicate without storing state, using the HTTP protocol and its methods (GET, POST, PUT, DELETE) to retrieve and modify resources. Other methods:
+- OPTIONS - allows you to check which operations are supported by a given resource
+- HEAD - retrieves only the headers of a resource without returning its body. It is used to check resource metadata, such as its size, last modification date, or availability, without downloading the content.
 
 ## SOLID <a name="solid"></a>
 **SOLID** is a set of five object-oriented design principles. **SOLID** is an acronym that groups five core principles that apply to object-oriented design. These principles are the following:

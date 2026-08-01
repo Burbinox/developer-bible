@@ -1,6 +1,7 @@
 # Docker
 - [CMD vs ENTRYPOINT vs RUN](#cmd_vs_entrypoint)
 - [Layers](#layers)
+- [Multi-stage builds](#multi_stage_builds)
 
 ## CMD vs ENTRYPOINT RUN<a name="cmd_vs_entrypoint_vs_run"></a>
 RUN used to execute commands during image building. 
@@ -53,4 +54,28 @@ COPY requirements.txtx .               # Layer n + 2
 RUN pip install -r ./requirements.txt  # Layer n + 3
 COPY python_file.py .                  # Layer n + 4
 CMD ["python", "./python_file.py"]     # Layer n + 5
+```
+
+## Multi-stage builds<a name="multi_stage_builds"></a>
+A Dockerfile can contain multiple `FROM` statements. Multi-stage builds allow you to separate the **build environment** from the **runtime environment**, which results in smaller and more secure Docker images.
+``` dockerfile
+# ===== STEP 1 =====
+FROM python:3.12 AS builder
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --prefix=/install -r requirements.txt
+
+# ===== STEP 2 =====
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY --from=builder /install /usr/local
+
+COPY app.py .
+
+CMD ["python", "app.py"]
 ```
