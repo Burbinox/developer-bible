@@ -7,6 +7,7 @@
 - [DRY - Don't Repeat Yourself](#dry)
 - [Functional Programming](#functional_programming)
 - [Idempotent API systems](#idempotent_api_systems)
+- [JWT - JSON Web Token](#jwt)
 - [KISS - Keep It Stupid, Simple](#kiss)
 - [Monolith vs microservices](#monolith_vs_microservices)
 - [Object-Oriented Programming](#oop)
@@ -126,6 +127,9 @@ Means that making the same request multiple times has the same final effect as m
 POST /create-article
 Idempotency-Key: user-X-create-article-Y
 ```
+
+## JWT - JSON Web Token <a name="jwt"></a>
+A JWT token consists of three parts: header.payload.signature. The signature is created based on the encoded header and payload, and a signing key (a secret or a private key). It is used to verify that the token has not been changed and that it comes from a trusted issuer.
 
 ## KISS - Keep It Stupid, Simple <a name="kiss"></a>
 Code should be kept as simple and straightforward as possible
