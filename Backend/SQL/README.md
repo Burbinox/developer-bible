@@ -19,8 +19,8 @@ ACID is a set of properties of database transactions:
 - Durability: This property ensures that the changes made by a committed transaction are permanent and persistent. Once a transaction is committed, its changes should be saved and remain in the database even in the event of a system failure or crash.
 
 ## Clustered index and non-clustered index <a name="clustered_index_and_non-clustered_index"></a>
-- Clustered index - creating clustered index physically sorts and reorganizes the data on disk, usually by the primary key (PRIMARY KEY) by default. At the same time, it creates a data structure in the form of a B-Tree, which significantly speeds up reading and searching data based on that key.
-- non-clustered index - an additional index created on one or more columns that also creates a separate data structure (a B-Tree). It contains the index keys and pointers to the original data in the table, enabling fast access to records based on those columns without changing the physical order of the data.
+- Clustered index - creating clustered index physically sorts and reorganizes the data on disk, usually by the primary key (PRIMARY KEY) by default. At the same time, it creates a data structure in the form of a B-Tree, which significantly speeds up reading and searching data based on that key. The time complexity is O(log n)
+- non-clustered index - an additional index created on one or more columns that also creates a separate data structure (a B-Tree). It contains the index keys and pointers to the original data in the table, enabling fast access to records based on those columns without changing the physical order of the data. The time complexity is O(log n). Unlike a clustered index, there is an additional lookup step required to retrieve the actual row data, because a nonclustered index stores the index key and a reference to the data rather than the full row itself
 ```sql
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY,
