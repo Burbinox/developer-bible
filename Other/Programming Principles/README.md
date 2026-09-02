@@ -1,5 +1,6 @@
 # Programming Principles
 - [At-least-once delivery, Inbox and Outbox patterns](#at_least_once_delivery)
+- [Architecture patterns](#architecture_patterns)
 - [Authorization vs Authentication](#authorization_vs_authentication)
 - [Concurrent Data Access Problems](#concurrent_data_access_problems)
 - [Design patterns](#design_patterns)
@@ -20,6 +21,13 @@
 - At-least-once delivery means that a message will be delivered at least once, but it may be delivered multiple times. Therefore, consumers must be idempotent, meaning they must be able to handle the same message being processed more than once.
 - Outbox Pattern means that a producer performs a business change and stores an event in an outbox table in its own database within a single transaction. Then, a separate process reads unsent events from the outbox and publishes them to the queue.
 - Inbox Pattern means that a consumer performs the business logic and stores the identifier of the received event within a single transaction in order to detect duplicates. If processing or writing to the database fails, the message is not acknowledged and returns to the queue.
+
+## Architecture patterns <a name="architecture_patterns"></a>
+- Domain-Driven Design - DDD is a way of creating software where we first try to understand how a given domain or problem works, and only then organize the code according to its concepts, rules, and processes. As a result, the code is more similar to the real-world problem that the program is meant to solve. It is an attempt to represent reality through code
+- Clean Architecture - means that the main business logic stays independent, and all contact with the outside world, such as databases, APIs, or user interfaces, is handled by separate parts of the application.
+- Hexagonal Architecture - keeps the main application logic independent from external technologies. Databases, APIs, and user interfaces communicate with the application through ports and adapters, which work like replaceable plugs.
+- Pipe and Filter Architecture - a pipeline where data passes through a sequence of independent processing steps.
+- Three-Tier Architecture — an architecture that divides an application into three main parts: presentation layer, business logic layer, and data layer.
 
 ## Authorization vs Authentication <a name="authorization_vs_authentication"></a>
 - Authentication is the process of verifying and confirming who a user is. Authentication can be performed using, for example, a username and password, SSO, or MFA (Multi-Factor Authentication).
