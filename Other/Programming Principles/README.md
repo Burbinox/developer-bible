@@ -7,6 +7,7 @@
 - [Dead Letter Queue](#dead_letter_queue)
 - [DRY - Don't Repeat Yourself](#dry)
 - [Functional Programming](#functional_programming)
+- [HATEOAS](#hateoas)
 - [Idempotent API systems](#idempotent_api_systems)
 - [JWT - JSON Web Token](#jwt)
 - [KISS - Keep It Stupid, Simple](#kiss)
@@ -14,6 +15,7 @@
 - [Object-Oriented Programming](#oop)
 - [Race condition in a REST API](#race_condition_in_a_rest_api)
 - [REST](#rest)
+- [Richardson Maturity Model (RMM)](#richardson_maturity_model)
 - [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
 
@@ -129,6 +131,46 @@ Code should not be unnecessarily duplicated or repeated.
 ## Functional Programming <a name="functional_programming"></a>
 Functional programming is based on pure functions, those that for the same input data will always give the same output data. It has no side effects which means it doesn't change the global variables. It also bases on the immutability of variables. Instead, new values are created as needed. This all together leads to code that is easier to understand, test, and debug.
 
+## HATEOAS <a name="hateoas"></a>
+HATEOAS (Hypermedia As The Engine Of Application State) - a REST architectural constraint where API responses contain hyperlinks describing available actions and related resources. Instead of hardcoding all API endpoints on the client side, clients discover available operations dynamically through links returned by the server.
+
+Without HATEOAS:
+```json
+{
+  "id": 456,
+  "amount": 1500,
+  "currency": "PLN",
+  "status": "PENDING_AUTHORIZATION"
+}
+```
+
+With HATEOAS:
+```json
+{
+  "id": 456,
+  "amount": 1500,
+  "currency": "PLN",
+  "status": "PENDING_AUTHORIZATION",
+  "_links": {
+    "self": {
+      "href": "/api/transfers/456"
+    },
+    "authorize": {
+      "href": "/api/transfers/456/authorize",
+      "method": "POST"
+    },
+    "cancel": {
+      "href": "/api/transfers/456/cancel",
+      "method": "POST"
+    }
+  }
+}
+```
+
+Characteristics of HATEOAS:
+- The client does not need to know the API structure in advance.
+- Available operations are determined by the current state of a resource.
+
 ## Idempotent API systems<a name="idempotent_api_systems"></a>
 Means that making the same request multiple times has the same final effect as making it once. Some methods are idempotent by default like: GET, PUT, DELETE (if implemented right). To make sure your POST request is idempotent you can add Idempotency-Key:
 ```
@@ -165,6 +207,53 @@ Object-Oriented Programming (OOP) is a programming paradigm that uses objects, w
 REST is an API design style where the client and server communicate without storing state, using the HTTP protocol and its methods (GET, POST, PUT, DELETE) to retrieve and modify resources. Other methods:
 - OPTIONS - allows you to check which operations are supported by a given resource
 - HEAD - retrieves only the headers of a resource without returning its body. It is used to check resource metadata, such as its size, last modification date, or availability, without downloading the content.
+
+## Richardson Maturity Model (RMM) <a name="richardson_maturity_model"></a>
+
+- Level 0 - The Swamp of POX (Plain Old XML) - HTTP is used mainly as a transport mechanism. The operation and resource are specified in the request body. Example:
+```json
+POST /api
+
+{
+  "operation": "cancelOrder",
+  "orderId": 123
+}
+```
+
+- Level 1 - Resources - Each resource has its own URI. Operations are still specified in the request body. Example:
+```json
+POST /api/orders/123
+
+{
+  "operation": "cancel"
+}
+```
+
+- Level 2 - HTTP Verbs - Uses HTTP methods (GET, POST, PUT, DELETE) to indicate the operation performed on a resource. HTTP status codes are also used to communicate the result. Examples:
+```http
+DELETE /api/orders/123
+GET /api/orders
+GET /api/orders/123
+```
+
+- Level 3 - Hypermedia Controls (HATEOAS) - API responses contain links describing available actions and related resources. Clients discover available operations dynamically instead of hardcoding all API endpoints. Example:
+```json
+GET /api/orders/123
+
+{
+  "id": 123,
+  "status": "PENDING",
+  "_links": {
+    "self": {
+      "href": "/api/orders/123"
+    },
+    "cancel": {
+      "href": "/api/orders/123/cancel",
+      "method": "POST"
+    }
+  }
+}
+```
 
 ## SOLID <a name="solid"></a>
 **SOLID** is a set of five object-oriented design principles. **SOLID** is an acronym that groups five core principles that apply to object-oriented design. These principles are the following:
