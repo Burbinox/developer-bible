@@ -1,7 +1,8 @@
 # Programming Principles
-- [At-least-once delivery, Inbox and Outbox patterns](#at_least_once_delivery)
 - [Architecture patterns](#architecture_patterns)
+- [At-least-once delivery, Inbox and Outbox patterns](#at_least_once_delivery)
 - [Authorization vs Authentication](#authorization_vs_authentication)
+- [CAP Theorem](#cap_theorem)
 - [Concurrent Data Access Problems](#concurrent_data_access_problems)
 - [Design patterns](#design_patterns)
 - [Dead Letter Queue](#dead_letter_queue)
@@ -19,11 +20,6 @@
 - [SOLID](#solid)
 - [YAGNI - You Ain't Gonna Need It](#yagni)
 
-## At-least-once delivery, Inbox and Outbox patterns <a name="at_least_once_delivery"></a>
-- At-least-once delivery means that a message will be delivered at least once, but it may be delivered multiple times. Therefore, consumers must be idempotent, meaning they must be able to handle the same message being processed more than once.
-- Outbox Pattern means that a producer performs a business change and stores an event in an outbox table in its own database within a single transaction. Then, a separate process reads unsent events from the outbox and publishes them to the queue.
-- Inbox Pattern means that a consumer performs the business logic and stores the identifier of the received event within a single transaction in order to detect duplicates. If processing or writing to the database fails, the message is not acknowledged and returns to the queue.
-
 ## Architecture patterns <a name="architecture_patterns"></a>
 - Domain-Driven Design - DDD is a way of creating software where we first try to understand how a given domain or problem works, and only then organize the code according to its concepts, rules, and processes. As a result, the code is more similar to the real-world problem that the program is meant to solve. It is an attempt to represent reality through code
 - Clean Architecture - means that the main business logic stays independent, and all contact with the outside world, such as databases, APIs, or user interfaces, is handled by separate parts of the application.
@@ -31,9 +27,17 @@
 - Pipe and Filter Architecture - a pipeline where data passes through a sequence of independent processing steps.
 - Three-Tier Architecture — an architecture that divides an application into three main parts: presentation layer, business logic layer, and data layer.
 
+## At-least-once delivery, Inbox and Outbox patterns <a name="at_least_once_delivery"></a>
+- At-least-once delivery means that a message will be delivered at least once, but it may be delivered multiple times. Therefore, consumers must be idempotent, meaning they must be able to handle the same message being processed more than once.
+- Outbox Pattern means that a producer performs a business change and stores an event in an outbox table in its own database within a single transaction. Then, a separate process reads unsent events from the outbox and publishes them to the queue.
+- Inbox Pattern means that a consumer performs the business logic and stores the identifier of the received event within a single transaction in order to detect duplicates. If processing or writing to the database fails, the message is not acknowledged and returns to the queue.
+
 ## Authorization vs Authentication <a name="authorization_vs_authentication"></a>
 - Authentication is the process of verifying and confirming who a user is. Authentication can be performed using, for example, a username and password, SSO, or MFA (Multi-Factor Authentication).
 - Authorization is the process of determining what an authenticated user is allowed to access or perform.
+
+**## CAP Theorem <a name="cap_theorem"></a>**
+- CAP (Consistency, Availability, Partition Tolerance) is a theorem stating that when part of a distributed system becomes unreachable, the system must choose between data Consistency (e.g. banking systems) and Availability (e.g. social media systems), as in practice it cannot guarantee both at the same time.
 
 ## Concurrent Data Access Problems <a name="concurrent_data_access_problems"></a>
 Race condition - a situation where the result of a program depends on the order in which concurrent operations are executed. It can lead to incorrect or unpredictable data.
